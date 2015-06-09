@@ -1,0 +1,40 @@
+
+.navbar-inner{
+    background: none;
+    filter: none;
+    border: none;
+    box-shadow: none;
+    /*background-color: #70ae3f;*/
+    background: -moz-gradient(linear, left top, left bottom, color-stop(0%, #2b598b), color-stop(100%, #5089c9));
+    background: gradient(linear, left top, left bottom, color-stop(0%, #2b598b), color-stop(100%, #5089c9));
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2b598b), color-stop(100%, #5089c9));
+    padding-top: 5px;
+    padding-bottom: 5px;   
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+z-index: 100;
+}
+
+.navbar .nav > li > a {
+    color: #fff;
+    text-shadow: none;
+}
+
+.navbar .nav > li > a:hover {
+    color: #667;
+}
+
+.navbar .nav .active > a {
+    color: #667;
+    background: none;
+}
+
+.navbar .nav .active > a:hover {
+    background: none;
+}
+
+.navbar .divider-vertical {
+    /*border-left: 1px solid #1c2022;
+    border-right: 1px solid #3e4a4e; */
+}

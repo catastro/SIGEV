@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TCajaDetalle" table="t_caja_detalle" catalog="calipsodb" optimistic-lock="version">
+        <id name="idcajadetalle" type="int">
+            <column name="IDCAJADETALLE" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="TCaja" class="SIGEV.BE.TCaja" fetch="select">
+            <column name="IDCAJA" />
+        </many-to-one>
+        <property name="denominacion" type="string">
+            <column name="DENOMINACION" length="50" />
+        </property>
+        <property name="idctipodetalle" type="java.lang.Integer">
+            <column name="IDCTIPODETALLE" />
+        </property>
+        <property name="monto" type="java.lang.Double">
+            <column name="MONTO" precision="22" scale="0" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <property name="idrazonsocial" type="java.lang.Integer">
+            <column name="IDRAZONSOCIAL" />
+        </property>
+        <property name="subtotal" type="java.lang.Double">
+            <column name="SUBTOTAL" precision="22" scale="0" />
+        </property>
+        <property name="egreso" type="java.lang.Double">
+            <column name="EGRESO" precision="22" scale="0" />
+        </property>
+        <property name="ingreso" type="java.lang.Double">
+            <column name="INGRESO" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

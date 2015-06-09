@@ -1,0 +1,16 @@
+
+[
+    {
+        "codigoAlumno": "001",
+        "monto": "110",
+        "fechaPago": "04/01/15",
+        "horaPago": "11:10:14"        
+    },
+    {
+        "codigoAlumno": "001",
+        "monto": "110",
+        "fechaPago": "02/02/15",
+        "horaPago": "09:05:46"        
+    }
+]
+

@@ -1,0 +1,125 @@
+
+
+<!--
+    Los que pertenecen a "Gestion", son manejados por el controlador de la 
+    clase principal, en este caso "GestionPersonal"
+-->
+<form id="formActualizarPersonal">
+    <div>
+        <div >
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <p><strong>ACTUALIZAR PERSONAL</strong></p>
+                </div>
+                <div class="panel-body">
+                    <input type="hidden"  id="txtIdPersonal"  />
+                    <input type="hidden"  id="txtIdPersona"  />
+                    <div class="form-group col-md-12 col-sm-6">
+                        <label class="control-label"> <span class="claseObligatorio">(*) Campos obligatorios</span></label>
+
+                    </div>
+                    <div class="form-group col-md-2 col-sm-4" align="center">
+                        <img src="Content/Image/fotoPerfil.png" alt="..." class="img-thumbnail" style="height: 120px; width: 150px;">
+                        <br> <br>
+                        <input id="txtFoto"  type="file" class="form-control" >
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6 ">
+                        <label class="control-label">Codigo <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtCodigoActualizar"  type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Codigo" autofocus="autofocus" required>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Dni <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtDniActualizar" type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Dni" required>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Nombre <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtNombreActualizar" type="text" class="form-control" placeholder="Nombre"  required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Apellido Paterno <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtApePaternoActualizar" type="text" class="form-control" placeholder="Ape. Paterno"  required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Apellido Materno <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtApeMaternoActualizar" type="text" class="form-control" placeholder="Ape. Materno"  required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Telefono</label>
+                        <input  id="txttelefonoActualizar" type="tel" class="form-control" pattern="[0-9]{9}" placeholder="Telefono" >
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Correo Electronico</label>
+                        <input id="txtemailActualizar" type="email" class="form-control" placeholder="Correo Electronico" >
+                    </div>
+
+                    <div class="form-group col-md-8 col-sm-6">
+                        <label class="control-label">Direccion</label>
+                        <input id="txtDireccionActualizar" type="text" class="form-control" placeholder="Direccion" >
+                    </div> 
+
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Ruta Asignada <span class="claseObligatorio">(*)</span></label>
+                        <select  id='cbRutaAsignadaActualizar' class="form-control" required>
+                            <option value="0"> ..Selecione..</option>                           
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Tipo Personal <span class="claseObligatorio">(*)</span></label>
+                        <select  id="cbTipoPersonalActualizar"  class="form-control" required>
+                            <option value="0"> ..Selecione..</option>                       
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Estado Personal <span class="claseObligatorio">(*)</span></label>
+                        <select  id="cbEstadoPersonalActualizar" class="form-control" required>
+                            <option value="0"> ..Selecione..</option>                      
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Fecha ingreso</label>
+                        <input id="txtFechaIngresoActualizar" type="text" class="form-control"  >
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Modalidad de Pago</label>          
+                        <select id='cbModalidadPagoActualizar' class="form-control" required>
+                            <option value="0"> ..Selecione..</option>  
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Hora entrada</label>
+                        <input id="txtHoraEntradaActualizar" type="text" class="form-control" placeholder="HH:mm" >
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Hora Salida</label>
+                        <input id="txtHoraSalidaActualizar" type="text" class="form-control" placeholder="HH:mm"  >
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Monto de Pago</label>
+                        <input id="txtMontoPagoActualizar" type="text" class="form-control" placeholder="Monto de Pago" >
+                    </div>
+
+                    <div class="form-group col-md-1 col-sm-12  col-md-offset-8 col-md-pull-8">
+                        <input class="btn btn-primary" value="Registrar" type="submit" />
+                    </div>
+                    <div class="form-group col-md-1 col-sm-12 col-md-pull-7">
+                        <input id="btnrstActualizarPersonal" class="btn btn-primary" value="Cancelar" type="reset" /> 
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</form>

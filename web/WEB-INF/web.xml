@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <jsp-config>
+        <jsp-property-group>
+            <description>principa_xml</description>  
+            
+                
+                    
+                        <url-pattern>/GestionBoveda.jsp</url-pattern>
+                        <url-pattern>/GestionVentas.jsp</url-pattern>    
+            <url-pattern>/GestionPersonal.jsp</url-pattern>             
+            <url-pattern>/GestionCliente.jsp</url-pattern> 
+            <url-pattern>/GestionProveedor.jsp</url-pattern> 
+            
+            <url-pattern>/GestionAsistencia.jsp</url-pattern> 
+            <url-pattern>/GestionPagos.html</url-pattern> 
+            
+                 <url-pattern>/GestionProducto.jsp</url-pattern>    
+            <url-pattern>/GestionCompra.jsp</url-pattern>             
+            <url-pattern>/GestionCaja.jsp</url-pattern> 
+            <url-pattern>/ValorizacionAlmacen.jsp</url-pattern> 
+            
+            <url-pattern>/Principal.html</url-pattern>
+            <url-pattern>/Error.html</url-pattern>
+            <url-pattern>/GestionAlumno.jsp</url-pattern>           
+            <url-pattern>/ControlAsistenciaAlumno.html</url-pattern>
+            <url-pattern>/PagoPensionAlumno.html</url-pattern>
+            <url-pattern>/ListaDeudores.html</url-pattern>
+            <url-pattern>/ListaAsistenciaAlumno.html</url-pattern>
+            <url-pattern>/GestionNotas.html</url-pattern>
+            <url-pattern>/GestionTablas.jsp</url-pattern>
+            <url-pattern>/GestionDocente.html</url-pattern>
+            <url-pattern>/GestionPersonal.html</url-pattern>
+            <url-pattern>/PagoDocente.html</url-pattern>
+            <url-pattern>/GestionExamen.jsp</url-pattern>
+                        
+            <url-pattern>/GestionCicloAcademico.html</url-pattern>
+            <url-pattern>/GestionModalidadPago.html</url-pattern>
+            <url-pattern>/GestionSalon.html</url-pattern>
+            <url-pattern>/GestionSede.html</url-pattern>
+            <url-pattern>/GestionHorarioSalon.html</url-pattern>
+            
+            <url-pattern>/EstadisticaAsistencia.html</url-pattern>
+            <url-pattern>/CantidadAlumnosPorCiclo.html</url-pattern>
+                        
+            <url-pattern>/GestionUsuario.jsp</url-pattern>
+            <url-pattern>/LogOut.jsp</url-pattern>
+            
+                     
+            
+                       
+
+
+           
+            <el-ignored>true</el-ignored>
+            <include-prelude>/WEB-INF/Cabeza.jsp</include-prelude>
+            <include-coda>/WEB-INF/Pie.jsp</include-coda>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>

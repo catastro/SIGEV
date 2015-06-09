@@ -1,0 +1,664 @@
+
+<div>
+    <div >
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h3 class="text-left">Gestion Pagos</h3>
+                <hr/>
+            </div>
+        </div>
+
+        <form id="formBuscarPersonal">
+            <div class="row">
+                <div class="form-group col-md-2 col-sm-2" id="opcionNombre" >
+                    <label  class="control-label">Nombre</label>
+                    <input id="txtNombreBusqueda" type="text" class="form-control"/>
+                </div>
+                <div class="form-group col-md-2 col-sm-2"  id="opcionApPaterno" >
+                    <label  class="control-label">Ap. Paterno</label>
+                    <input id="txtApPaternoBusqueda" type="text" class="form-control"/>
+                </div>
+                <div class="form-group col-md-2 col-sm-2"  id="opcionApMaterno">
+                    <label  class="control-label">Ap. Materno</label>
+                    <input id="txtApMaternoBusqueda" type="text" class="form-control"/>
+                </div>
+                <div class="form-group col-md-2 col-sm-2">
+                    <br/>
+                    <input class="btn btn-primary" value="Buscar" type="submit" />
+                </div>
+            </div>
+        </form>
+
+        <div class="menuDerecho">
+            <div class="btn-group-vertical" role="group" aria-label="...">
+
+                <button id="btnListarPersonal" style="margin: 5px;text-align: left"  class="btn btn-primary"><span class="glyphicon glyphicon-plus">&nbsp;</span><strong>Listar Personal</strong></button>
+
+             <!--   <button id="btnNuevoPago" style="margin: 5px;text-align: left"  class="btn btn-primary"><span class="glyphicon glyphicon-plus">&nbsp;</span><strong>Nuevo</strong></button>
+
+                <button id="btnActualizarPago" style="margin: 5px;text-align: left"  class="btn btn-primary"><span class="glyphicon glyphicon-refresh">&nbsp;</span><strong>Actualizar</strong></button>
+
+                <button id="btnEliminarPago" style="margin: 5px;text-align: left"  class="btn btn-primary"><span class="glyphicon glyphicon-remove">&nbsp;</span><strong>Eliminar</strong></button>
+              -->
+            </div>     
+
+        </div>
+        <!--Fin botones menu-->
+
+        <br>
+
+
+
+        <div id="BuscarPersonal" style="display: block">
+
+            <table id="resultadoBusquedaPersonal"></table>
+        </div> 
+
+        <!--formulario de registro de pagos-->
+        <form id="formModalRegistroPago">
+            <div>             
+                <div class="modal fade" id="modalRegistroPago" style="display: none;" tabindex="-1" role="dialog" aria-labelledby="MyModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button id="btnCerrarRegistroItem" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h3><strong>Registro Pago</strong></h3>                                
+                            </div>
+                            <input type="hidden"  id="txtIdPersonal" name="txtIdPersonal" />
+                            <input type="hidden"  id="txtIdPago" name="txtIdPago" />
+                            <div class="modal-body">  
+                                <div class="form-group col-md-12">
+                                    <label class="control-label" style="color: red;">(*) Campos Obligatorios</label>
+                                </div> 
+
+                                <div class="row">
+                                    <div class="form-group col-md-4 col-sm-6">
+                                        <label class="control-label">Fecha Pago inicio <span class="claseObligatorio">(*)</span></label>
+                                        <input id="txtFechaPagoInicio"  type="text" class="form-control"  placeholder="Fecha Pago Inicio" autofocus="autofocus" required>
+                                    </div>
+
+                                    <div class="form-group col-md-4 col-sm-6">
+                                        <label class="control-label">Fecha Pago Fin <span class="claseObligatorio">(*)</span></label>
+                                        <input id="txtFechPagoFin" type="text" class="form-control"  placeholder="Fecha Pago  Fin" required>
+                                    </div>
+
+                                    <div class="form-group col-md-4 col-sm-6">
+                                        <label class="control-label">Monto <span class="claseObligatorio">(*)</span></label>
+                                        <input id="txtMonto" type="number" class="form-control" placeholder="Monto" step="0.01" required>
+                                    </div>
+
+                                    <div class="form-group col-md-4 col-sm-6">
+                                        <label class="control-label">Minutos de Tardanza <span class="claseObligatorio">(*)</span></label>
+                                        <input id="txtMinutosTardanza" type="number" class="form-control" placeholder="Tardanza"  required>
+                                    </div>
+                                    <div class="form-group col-md-4 col-sm-6">
+                                        <label class="control-label">Horas Extra <span class="claseObligatorio">(*)</span></label>
+                                        <input id="txtHorasExtra" type="number" class="form-control" placeholder="Horas Extra"  required>
+                                    </div>
+                                    <div class="form-group col-md-4 col-sm-6">
+                                        <label class="control-label">Descuento <span class="claseObligatorio">(*)</span></label>
+                                        <input id="txtDescuento" type="number" class="form-control" placeholder="Descuento"  step="0.01" required>
+                                    </div>
+                                    <div class="form-group col-md-4 col-sm-6">
+                                        <label class="control-label">Aumento <span class="claseObligatorio">(*)</span></label>
+                                        <input id="txtAumento" type="number" class="form-control" placeholder="Aumento"  step="0.01" required>
+                                    </div>
+                                    <div class="form-group col-md-4 col-sm-6">
+                                        <label class="control-label">Monto Total<span class="claseObligatorio">(*)</span></label>
+                                        <input id="txtMontoTotal" type="number" class="form-control" placeholder="Monto Total" step="0.01" required>
+                                    </div>
+
+                                </div>                                
+                            </div>
+
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-primary" value="Guardar">
+                                <!--<button id="btnGuardarItem" class="btn btn-primary">Guardar</button>-->
+                                <button id="btnModalCancelar" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!--formulario de actualizar de pagos-->
+        <!--   <form id="formActualizarPago" style="display: none">
+              <div >
+                  <div class="panel panel-info">
+                      <div class="panel-heading">
+                          <p><strong>ACTUALIZAR PAGO</strong></p>
+                      </div>
+                      <input type="hidden"  id="txtIdPagoActualizar" name="txtIdPagoActualizar" />
+                      <div class="panel-body">
+                          <div class="form-group col-md-4 col-sm-6">
+                              <label class="control-label">Fecha Pago inicio <span class="claseObligatorio">(*)</span></label>
+                              <input id="txtFechaPagoInicioActualizar"  type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Fecha Pago Inicio" autofocus="autofocus" required>
+                          </div>
+  
+                          <div class="form-group col-md-4 col-sm-6">
+                              <label class="control-label">Fecha Pago Fin <span class="claseObligatorio">(*)</span></label>
+                              <input id="txtFechPagoFinActualizar" type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Fecha Pago  Fin" required>
+                          </div>
+  
+                          <div class="form-group col-md-4 col-sm-6">
+                              <label class="control-label">Monto <span class="claseObligatorio">(*)</span></label>
+                              <input id="txtMontoActualizar" type="text" class="form-control" placeholder="Monto" pattern="[A-Za-z ]{1,30}" required>
+                          </div>
+  
+                          <div class="form-group col-md-4 col-sm-6">
+                              <label class="control-label">Minutos de Tardanza <span class="claseObligatorio">(*)</span></label>
+                              <input id="txtMInutosTardanzaActualizar" type="text" class="form-control" placeholder="Tardanza" pattern="[A-Za-z ]{1,30}" required>
+                          </div>
+                          <div class="form-group col-md-4 col-sm-6">
+                              <label class="control-label">Horas Extra <span class="claseObligatorio">(*)</span></label>
+                              <input id="txtHorasExtraActualizar" type="text" class="form-control" placeholder="Horas Extra" pattern="[A-Za-z ]{1,30}" required>
+                          </div>
+                          <div class="form-group col-md-4 col-sm-6">
+                              <label class="control-label">Descuento <span class="claseObligatorio">(*)</span></label>
+                              <input id="txtDescuentoActualizar" type="text" class="form-control" placeholder="Descuento" pattern="[A-Za-z ]{1,30}" required>
+                          </div>
+                          <div class="form-group col-md-4 col-sm-6">
+                              <label class="control-label">Aumento <span class="claseObligatorio">(*)</span></label>
+                              <input id="txtAumentoActualizar" type="text" class="form-control" placeholder="Aumento" pattern="[A-Za-z ]{1,30}" required>
+                          </div>
+                          <div class="form-group col-md-4 col-sm-6">
+                              <label class="control-label">Monto Total<span class="claseObligatorio">(*)</span></label>
+                              <input id="txtMontoTotalActualizar" type="text" class="form-control" placeholder="Monto Total" pattern="[A-Za-z ]{1,30}" required>
+                          </div>
+                          <br>
+                          <div class="form-group col-md-1 col-sm-12  col-md-offset-8 col-md-pull-8">
+                              <label class="control-label">&nbsp;&nbsp;&nbsp </label>
+                              <input  type="submit" class="btn btn-primary" value="Registrar" >
+                          </div>
+                          <div class="form-group col-md-1 col-sm-12 col-md-pull-8">
+                              <label class="control-label">&nbsp;&nbsp;&nbsp </label>
+                              <input  type="submit" class="btn btn-primary" value="Cancelar" >
+                          </div>
+                      </div>
+  
+                  </div>
+  
+              </div>
+          </form>  -->
+
+        <!-- Botones items -->
+        <div class="row" style="display: none;">
+            <br/>
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="form-group col-md-2 col-sm-2">
+                    <button id="btnNuevoPagoModal" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistroPago" ><strong>Nueva Modalidad Item</strong></button>
+                </div>
+                <div class="form-group col-md-2 col-sm-2">
+                    <button id="btnActualizarPagoModal" class="btn btn-primary" ><strong>Actualizar Modalidad Item</strong></button>
+                </div>
+                <div class="form-group col-md-2 col-sm-3">
+                    <button id="btnEliminarPagoModal" class="btn btn-primary"><strong>Eliminar Modalidad Item</strong></button>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var accionPagoItem;
+
+    $(document).on('ready', function () {
+        //cargarDatagrid();
+        ListarPersonal();
+
+        $("#txtFechaPagoInicio").datepicker();
+        $("#txtFechPagoFin").datepicker();
+
+
+
+    });
+
+    $('#btnListarPersonal').on('click', function () {
+
+        ListarPersonal();
+    });
+    
+    $("#formBuscarPersonal").submit(function () {
+            BuscarPersonal();
+            return false;
+        });
+
+
+    /* $('#btnNuevoPago').on('click', function () {
+     //alert("aqui");
+     var data = null;
+     data = $('#resultadoBusquedaPersonal').datagrid("getSelected");
+     
+     //alert(data);
+     if (data !== null) {
+     $('#formRegistroPago').css({'display': 'block'});
+     $('#formActualizarPago').css({'display': 'none'});
+     $('#formBuscarPersonal').css({'display': 'none'});
+     $('#BuscarPersonal').css({'display': 'none'});
+     
+     $('#txtIdPersonal').val(data.idpersonal);
+     }
+     else {
+     $.messager.alert('Alerta', "Por favor seleccione un personal");
+     }
+     
+     });  */
+
+    /* $('#btnActualizarPago').on('click', function () {
+     var data = null;
+     data = $('#resultadoBusquedaPersonal').datagrid("getSelected");
+     
+     if (data !== null) {
+     $('#formRegistroPago').css({'display': 'none'});
+     $('#formActualizarPago').css({'display': 'block'});
+     $('#formBuscarPersonal').css({'display': 'none'});
+     $('#BuscarPersonal').css({'display': 'none'});
+     
+     cargarDatosActualizar();
+     
+     }
+     else {
+     $.messager.alert('Alerta', "Por favor seleccione un personal");
+     
+     }
+     });   */
+
+    /*
+     $("#formRegistroPago").submit(function () {
+     registrarPago();
+     return false;
+     });  */
+
+    /* $('#btnrstRegistroPago').on('click', function () {
+     document.getElementById("formRegistroPago").reset();
+     
+     });  */
+
+
+    //para los modales
+    $('#formModalRegistroPago').submit(function () {
+        if (accionPagoItem === "6")
+            registrarPago();
+        else if (accionPagoItem === "7")
+            actualizarPago();
+
+        return false;
+    });
+
+
+    function cargarDatagrid() {
+        $("#resultadoBusquedaPersonal").datagrid({
+            height: 400,
+            remoteSort: false,
+            singleSelect: true,
+            title: "Lista de Personales",
+            nowrap: false,
+            fitColumns: true,
+            loadMsg: 'Cargando...',
+            striped: true,
+            collapsible: true,
+            rownumbers: true,
+            columns: [[
+                    {field: 'idcrutaasignada', title: 'idcrutaasignada', align: "center", width: 70, sortable: true, resizable: true, hidden: true},
+                    {field: 'idctipopersonal', title: 'idctipopersonal', align: "center", width: 70, sortable: true, resizable: true, hidden: true},
+                    {field: 'idcmodalidadpago', title: 'idcmodalidadpago', align: "center", width: 70, sortable: true, resizable: true, hidden: true},
+                    {field: 'idcestadopersonal', title: 'idcestadopersonal', align: "center", width: 70, sortable: true, resizable: true, hidden: true},
+                    {field: 'idpersona', title: 'idpersona', align: "center", width: 70, sortable: true, resizable: true, hidden: true},
+                    {field: 'idpersonal', title: 'idpersonal', align: "center", width: 70, sortable: true, resizable: true, hidden: true},
+                    {field: 'codigo', title: 'CODIGO', align: "center", width: 70, sortable: true, resizable: true, hidden: false},
+                    {field: 'dni', title: 'DNI', align: "center", width: 70, sortable: true, resizable: true},
+                    {field: 'nombres', title: 'NOMBRES', width: 130, align: 'center', sortable: true, resizable: true},
+                    {field: 'apppat', title: 'AP. PATERNO', width: 130, align: 'center', sortable: true, resizable: true},
+                    {field: 'appmat', title: 'AP. MATERNO', width: 130, align: 'center', sortable: true, resizable: true},
+                    {field: 'telefono', title: 'TELEFONO', width: 70, align: 'center', sortable: true, resizable: true, hidden: false},
+                    {field: 'direccion', title: 'DIRECCION', width: 130, align: 'center', sortable: true, resizable: true, hidden: false},
+                    {field: 'ruta', title: 'RUTA', width: 130, align: 'center', sortable: true, resizable: true, hidden: true},
+                    {field: 'tipoPersonal', title: 'TIPO PERSONAL', width: 130, align: 'center', sortable: true, resizable: true, hidden: false},
+                    {field: 'email', title: 'E-MAIL', width: 100, align: 'center', sortable: true, resizable: true, hidden: false},
+                    {field: 'horaentrada', title: 'horaentrada', width: 100, align: 'center', sortable: true, resizable: true, hidden: true},
+                    {field: 'horasalida', title: 'horasalida', width: 100, align: 'center', sortable: true, resizable: true, hidden: true}
+                ]],
+            view: detailview,
+            detailFormatter: function (index, row) {
+                return '<div style="padding:2px"><table id="ddv-' + index + '" class="ddv"></table></div>';
+            },
+            onExpandRow: function (index, row) {
+
+                var dataListaPersonal = $('#resultadoBusquedaPersonal').datagrid('getRows');
+
+                for (i = 0; i < dataListaPersonal.length; i++) {
+                    var indiceAbierto = $('#resultadoBusquedaPersonal').datagrid("getRowIndex", dataListaPersonal[i]);
+                    if (index !== indiceAbierto) {
+                        $('#resultadoBusquedaPersonal').datagrid("collapseRow", indiceAbierto);
+                    } else {
+                        $('#resultadoBusquedaPersonal').datagrid("selectRow", indiceAbierto);
+                    }
+                }
+
+                var ddv = $(this).datagrid('getRowDetail', index).find('table.ddv');
+                //alert("jajajaj");
+                //var date=$('#resultadoBusquedaPersonal').datagrid('getSelected').idpersonal;
+                //alert(date);
+
+                $('#ddv-' + index).datagrid({
+                    url: 'GestionPagoServlet?accion=3&idpersonal=' + $('#resultadoBusquedaPersonal').datagrid('getSelected').idpersonal,
+                    fitColumns: true,
+                    singleSelect: true,
+                    rownumbers: true,
+                    loadMsg: 'Cargando',
+                    height: 200,
+                    columns: [[
+                            {field: 'idpago', title: 'idPago', width: 100, hidden: true},
+                            {field: 'fechapagofin', title: 'fechapagofin', width: 100},
+                            {field: 'fechapagoinicio', title: 'fechapagoinicio', width: 100},
+                            {field: 'monto', title: 'monto', width: 100},
+                            {field: 'horasextra', title: 'horasextra', width: 100},
+                            {field: 'descuento', title: 'descuento', width: 100},
+                            {field: 'aumento', title: 'aumento', width: 100},
+                            {field: 'minutostardanza', title: 'minutostardanza', width: 100, hidden: true},
+                            {field: 'montototal', title: 'montototal', width: 100}
+                        ]],
+                    onResize: function () {
+                        $('#resultadoBusquedaPersonal').datagrid('fixDetailRowHeight', index);
+                    },
+                    onLoadSuccess: function () {
+                        setTimeout(function () {
+                            $('#resultadoBusquedaPersonal').datagrid('fixDetailRowHeight', index);
+                        }, 0);
+                    },
+                    toolbar: [
+                        {
+                            text: 'Nuevo',
+                            iconCls: 'icon-save',
+                            heigth: 45,
+                            handler: function () {
+
+                                var data = null;
+                                data = $('#resultadoBusquedaPersonal').datagrid("getSelected");
+                                if (data !== null) {
+                                    //$('#formRegistroPago').css({'display': 'block'});
+                                    //$('#formActualizarPago').css({'display': 'none'});
+                                    //$('#formBuscarPersonal').css({'display': 'none'});
+                                    //$('#BuscarPersonal').css({'display': 'none'});
+
+                                    $('#txtIdPersonal').val(data.idpersonal);
+                                }
+                                else {
+                                    $.messager.alert('Alerta', "Por favor seleccione un personal");
+                                }
+
+                                document.getElementById("formModalRegistroPago").reset();
+                                $('#btnNuevoPagoModal').click();
+                                accionPagoItem = "6";
+                            }
+                        },
+                        {
+                            text: 'Actualizar',
+                            iconCls: 'icon-reload',
+                            heigth: 45,
+                            handler: function () {
+                                if (ddv.datagrid('getSelected') !== null) {
+                                    $('#btnActualizarPagoModal').attr({
+                                        'data-toggle': 'modal',
+                                        'data-target': '#modalRegistroPago'
+                                    });
+
+                                    document.getElementById("formModalRegistroPago").reset();
+                                    $('#btnActualizarPagoModal').click();
+                                    accionPagoItem = "7";
+
+                                    $('#txtIdPago').val($('#ddv-' + index).datagrid('getSelected').idpago);
+                                    $('#txtFechaPagoInicio').val($('#ddv-' + index).datagrid('getSelected').fechapagofin);
+                                    $('#txtFechPagoFin').val($('#ddv-' + index).datagrid('getSelected').fechapagoinicio);
+                                    $('#txtMonto').val($('#ddv-' + index).datagrid('getSelected').monto);
+                                    $('#txtHorasExtra').val($('#ddv-' + index).datagrid('getSelected').horasextra);
+                                    $('#txtDescuento').val($('#ddv-' + index).datagrid('getSelected').descuento);
+                                    $('#txtAumento').val($('#ddv-' + index).datagrid('getSelected').aumento);
+                                    $('#txtMinutosTardanza').val($('#ddv-' + index).datagrid('getSelected').minutostardanza);
+                                    $('#txtMontoTotal').val($('#ddv-' + index).datagrid('getSelected').montototal);
+
+
+                                }
+                                else {
+                                    $.messager.alert('Informacion', 'Por favor, seleccione un pago', 'warming');
+
+                                }
+
+                            }
+
+                        },
+                        {
+                            text: 'Eliminar',
+                            iconCls: 'icon-cancel',
+                            heigth: 45,
+                            handler: function () {
+                                if (ddv.datagrid('getSelected') !== null) {
+                                    $.messager.confirm('Confirmacion', 'Estas seguro que deseas eliminar?', function (r) {
+                                        if (r) {
+                                            eliminarPago();
+                                        }
+                                    });
+
+                                } else {
+                                    $.messager.alert('Informacion', 'Por favor, seleccione un pago para eliminar', 'warming');
+                                }
+                            }
+
+                        }
+                    ]
+
+
+                });
+            } 
+
+        });
+    }
+    ;
+
+    function registrarPago() {
+        var oTPersonal = {
+            idpersonal: $('#txtIdPersonal').val()
+        };
+
+        var oTPago = {
+            //fechapagoinicio: $('#txtFechaPagoInicio').val(),
+            //fechapagofin: $('#txtFechPagoFin').val(),
+            monto: $('#txtMonto').val(),
+            minutostardanza: $('#txtMinutosTardanza').val(),
+            horasextra: $('#txtHorasExtra').val(),
+            descuento: $('#txtDescuento').val(),
+            aumento: $('#txtAumento').val(),
+            montototal: $('#txtMontoTotal').val()
+        };
+
+        var fechapagoinicio = $('#txtFechaPagoInicio').val();
+        var fechapagofin = $('#txtFechPagoFin').val();
+
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "GestionPagoServlet",
+            data: {
+                oTPersonal: JSON.stringify(oTPersonal),
+                oTPago: JSON.stringify(oTPago),
+                accion: "registrarPago",
+                fechapagoinicio: fechapagoinicio,
+                fechapagofin: fechapagofin
+            },
+            success: function (data) {
+                if (data === true)
+                    $.messager.alert('Confirmacion', "Se registro correctamente");
+                else
+                    $.messager.alert('Error', "No se pudo registrar");
+
+                $('#btnCerrarRegistroItem').click();
+                var indiceAbiertoCabecera = $('#resultadoBusquedaPersonal').datagrid('getRowIndex', $('#resultadoBusquedaPersonal').datagrid('getSelected'));
+                $('#resultadoBusquedaPersonal').datagrid('collapseRow', indiceAbiertoCabecera);
+                $('#resultadoBusquedaPersonal').datagrid('expandRow', indiceAbiertoCabecera);
+                //ListarPersonal();
+
+
+            },
+            error: function (error) {
+                alert("errror: " + error.toString());
+            }
+        });
+    }
+    ;
+
+    function actualizarPago() {
+
+        var oTPago = {
+            idpago: $('#txtIdPago').val(),
+            monto: $('#txtMonto').val(),
+            minutostardanza: $('#txtMinutosTardanza').val(),
+            horasextra: $('#txtHorasExtra').val(),
+            descuento: $('#txtDescuento').val(),
+            aumento: $('#txtAumento').val(),
+            montototal: $('#txtMontoTotal').val()
+        };
+
+        //alert(oTPago.idpago);
+
+        var fechapagoinicio = $('#txtFechaPagoInicio').val();
+        var fechapagofin = $('#txtFechPagoFin').val();
+
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "GestionPagoServlet",
+            data: {
+                oTPago: JSON.stringify(oTPago),
+                accion: "actualizarPago",
+                fechapagoinicio: fechapagoinicio,
+                fechapagofin: fechapagofin
+            },
+            success: function (data) {
+                if (data === true)
+                    $.messager.alert('Confirmacion', "Se actualizó correctamente");
+                else
+                    $.messager.alert('Error', "No se pudo actualizar");
+
+                $('#btnCerrarRegistroItem').click();
+                var indiceAbiertoCabecera = $('#resultadoBusquedaPersonal').datagrid('getRowIndex', $('#resultadoBusquedaPersonal').datagrid('getSelected'));
+                $('#resultadoBusquedaPersonal').datagrid('collapseRow', indiceAbiertoCabecera);
+                $('#resultadoBusquedaPersonal').datagrid('expandRow', indiceAbiertoCabecera);
+                //ListarPersonal();
+
+
+            },
+            error: function (error) {
+                alert("errror al actualizar: " + error.toString());
+            }
+        });
+    }
+    ;
+
+    function eliminarPago() {
+        var indiceAbierto = $('#resultadoBusquedaPersonal').datagrid('getRowIndex', $('#resultadoBusquedaPersonal').datagrid('getSelected'));
+        var idPago = $('#ddv-' + indiceAbierto).datagrid('getSelected').idpago;
+        
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "GestionPagoServlet",
+            data: {
+                accion: "eliminarPago",
+                idPago: idPago
+            },
+            success: function (data) {
+                if (data === true)
+                    $.messager.alert('Confirmacion', "Se eliminó correctamente");
+                else
+                    $.messager.alert('Error', "No se pudo eliminar");
+
+                var indiceAbierto = $('#resultadoBusquedaPersonal').datagrid('getRowIndex', $('#resultadoBusquedaPersonal').datagrid('getSelected'));
+                $('#resultadoBusquedaPersonal').datagrid('collapseRow', indiceAbierto);
+                $('#resultadoBusquedaPersonal').datagrid('expandRow', indiceAbierto);
+            },
+            error: function (e) {
+                $.messager.alert('Error', 'No se elimino', 'error');
+            }
+        });
+
+    }
+    ;
+
+    function ListarPersonal() {
+        $('#formRegistroPago').css({'display': 'none'});
+        $('#formActualizarPago').css({'display': 'none'});
+        $('#formBuscarPersonal').css({'display': 'block'});
+        $('#BuscarPersonal').css({'display': 'block'});
+        //document.getElementById("formRegistroPago").reset();
+        //document.getElementById("formActualizarPago").reset();
+
+        cargarDatagrid();
+
+        var accion = "ListarPersonal";
+        //alert(accion);
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "GestionPersonalServlet",
+            data: {
+                accion: accion
+            },
+            success: function (data) {
+                //alert(data);
+                $("#resultadoBusquedaPersonal").datagrid({
+                    data: data});
+                $('#resultadoBusquedaPersonal').datagrid("unselectAll");
+            },
+            error: function (error) {
+                alert("error cargando datos" + error.toString());
+            }
+        });
+
+
+    }
+    ;
+    
+    function BuscarPersonal(){
+             var oPersona = {
+                nombres: $('#txtNombreBusqueda').val(),
+                apppat: $('#txtApPaternoBusqueda').val(),
+                appmat: $('#txtApMaternoBusqueda').val()
+
+            };
+            var accion = "buscarPersonal";
+            
+             $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "GestionPersonalServlet",
+                    data: {
+                        oTPersona: JSON.stringify(oPersona),
+                        accion: accion
+                    },
+                    success: function (data) {
+                        $("#resultadoBusquedaPersonal").datagrid({
+                        data: data});
+
+                    },
+                    error: function (error) {
+                         alert("error cargando datos" + error.toString());
+                    }
+                });
+            
+        }
+
+    
+
+
+
+</script>
+
+
+
+

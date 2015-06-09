@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TDetalleCompra" table="t_detalle_compra" catalog="calipsodb" optimistic-lock="version">
+        <id name="iddetallecompra" type="int">
+            <column name="IDDETALLECOMPRA" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="TCompra" class="SIGEV.BE.TCompra" fetch="select">
+            <column name="IDCOMPRA" />
+        </many-to-one>
+        <many-to-one name="TProducto" class="SIGEV.BE.TProducto" fetch="select">
+            <column name="IDPRODUCTO" />
+        </many-to-one>
+        <property name="fechavencimiento" type="timestamp">
+            <column name="FECHAVENCIMIENTO" length="19" />
+        </property>
+        <property name="cantidadcompra" type="java.lang.Integer">
+            <column name="CANTIDADCOMPRA" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <property name="cantidaddaniado" type="java.lang.Integer">
+            <column name="CANTIDADDANIADO" />
+        </property>
+        <property name="idcobservacion" type="java.lang.Integer">
+            <column name="IDCOBSERVACION" />
+        </property>
+        <property name="subtotal" type="java.lang.Double">
+            <column name="SUBTOTAL" precision="22" scale="0" />
+        </property>
+        <property name="preciocompraunid" type="java.lang.Double">
+            <column name="PRECIOCOMPRAUNID" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

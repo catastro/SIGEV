@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TPersonal" table="t_personal" catalog="calipsodb" optimistic-lock="version">
+        <id name="idpersonal" type="int">
+            <column name="IDPERSONAL" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="TPersona" class="SIGEV.BE.TPersona" fetch="select">
+            <column name="IDPERSONA" />
+        </many-to-one>
+        <property name="idcrutaasignada" type="java.lang.Integer">
+            <column name="IDCRUTAASIGNADA" />
+        </property>
+        <property name="idctipopersonal" type="java.lang.Integer">
+            <column name="IDCTIPOPERSONAL" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <property name="idcestadopersonal" type="java.lang.Integer">
+            <column name="IDCESTADOPERSONAL" />
+        </property>
+        <property name="idcmodalidadpago" type="java.lang.Integer">
+            <column name="IDCMODALIDADPAGO" />
+        </property>
+        <property name="horaentrada" type="time">
+            <column name="HORAENTRADA" length="8" />
+        </property>
+        <property name="horasalida" type="time">
+            <column name="HORASALIDA" length="8" />
+        </property>
+        <property name="urlfoto" type="string">
+            <column name="URLFOTO" length="100" />
+        </property>
+        <property name="urlimagen" type="string">
+            <column name="URLIMAGEN" length="100" />
+        </property>
+        <property name="montopago" type="java.lang.Double">
+            <column name="MONTOPAGO" precision="22" scale="0" />
+        </property>
+        <property name="fechaingreso" type="timestamp">
+            <column name="FECHAINGRESO" length="19" />
+        </property>
+        <set name="TPagos" table="t_pago" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPERSONAL" />
+            </key>
+            <one-to-many class="SIGEV.BE.TPago" />
+        </set>
+        <set name="THistorialAsistencias" table="t_historial_asistencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPERSONAL" />
+            </key>
+            <one-to-many class="SIGEV.BE.THistorialAsistencia" />
+        </set>
+    </class>
+</hibernate-mapping>

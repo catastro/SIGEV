@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TRol" table="t_rol" catalog="calipsodb" optimistic-lock="version">
+        <id name="idrol" type="int">
+            <column name="IDROL" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombrerol" type="string">
+            <column name="NOMBREROL" length="100" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="100" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fachamodif" type="date">
+            <column name="FACHAMODIF" length="10" />
+        </property>
+        <set name="TUsuarios" table="t_usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDROL" />
+            </key>
+            <one-to-many class="SIGEV.BE.TUsuario" />
+        </set>
+        <set name="TRolPrivilegios" table="t_rol_privilegio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDROL" />
+            </key>
+            <one-to-many class="SIGEV.BE.TRolPrivilegio" />
+        </set>
+        <set name="TMenuRols" table="t_menu_rol" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDROL" />
+            </key>
+            <one-to-many class="SIGEV.BE.TMenuRol" />
+        </set>
+    </class>
+</hibernate-mapping>

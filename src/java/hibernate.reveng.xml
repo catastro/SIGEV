@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="calipsodb"/>
+  <table-filter match-name="t_detalle_venta"/>
+  <table-filter match-name="t_pago"/>
+  <table-filter match-name="t_precio"/>
+  <table-filter match-name="t_persona"/>
+  <table-filter match-name="t_frecuencia"/>
+  <table-filter match-name="t_proveedor"/>
+  <table-filter match-name="t_usuario"/>
+  <table-filter match-name="t_historial_asistencia"/>
+  <table-filter match-name="t_cliente"/>
+  <table-filter match-name="t_devolucion_producto"/>
+  <table-filter match-name="t_razon_social"/>
+  <table-filter match-name="t_rol"/>
+  <table-filter match-name="t_contenedor"/>
+  <table-filter match-name="t_personal"/>
+  <table-filter match-name="t_producto"/>
+  <table-filter match-name="t_caja_detalle"/>
+  <table-filter match-name="t_compra"/>
+  <table-filter match-name="t_caja"/>
+  <table-filter match-name="t_menu_rol"/>
+  <table-filter match-name="t_detalle_compra"/>
+  <table-filter match-name="t_rol_privilegio"/>
+  <table-filter match-name="t_venta"/>
+  <table-filter match-name="t_boveda"/>
+  <table-filter match-name="t_privilegio"/>
+  <table-filter match-name="t_menu"/>
+</hibernate-reverse-engineering>

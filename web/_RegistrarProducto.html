@@ -1,0 +1,81 @@
+
+<!--
+    Los que pertenecen a "Gestion", son manejados por el controlador de la 
+    clase principal, en este caso "GestionAlunmo"
+-->
+<form id="formRegistroAlumno">
+<div>
+    <div >
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <p><strong>REGISTRAR PRODUCTO</strong></p>
+            </div>
+            <div class="panel-body">
+                
+                <div class="form-group col-md-12 col-sm-6">
+                    <label class="control-label"> <span class="claseObligatorio">(*) Campos obligatorios</span></label>
+                    
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Codigo <span class="claseObligatorio">(*)</span></label>
+                    <input id="txtCodigo"  type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Codigo" autofocus="autofocus" required>
+                </div>
+
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Nombre <span class="claseObligatorio">(*)</span></label>
+                    <input id="txtNombre" type="text" class="form-control" placeholder="Nombre" pattern="[A-Za-z ]{1,30}" required>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Marca <span class="claseObligatorio">(*)</span></label>
+                    <select  class="form-control" required>
+                        <option value="0">Pepsi</option>
+                        <option value="1">FritoLay</option>
+                        <option value="2">Tropicana</option>
+                        <option value="2">Quaker</option>
+                    </select>
+                </div>
+                
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Precio de Compra <span class="claseObligatorio">(*)</span></label>
+                    <input id="txtApePaterno" type="text" class="form-control" placeholder="Precio de Compra" pattern="[A-Za-z ]{1,30}" required>
+                </div>
+
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Cantidad de unidades por Caja <span class="claseObligatorio">(*)</span></label>
+                    <input id="txtApeMaterno" type="text" class="form-control" placeholder="Cantidad por Caja" pattern="[A-Za-z ]{1,30}" required>
+                </div>
+
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Precio de venta por mayor</label>
+                    <input  id="txttelefono" type="tel" class="form-control" pattern="[0-9]{9}" placeholder="Precio de venta por mayor" >
+                </div>
+
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Precio de venta por menor</label>
+                    <input  id="txttelefono" type="tel" class="form-control" pattern="[0-9]{9}" placeholder="Precio de venta por menor" >
+                </div>
+                
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Precio de venta especial</label>
+                    <input  id="txttelefono" type="tel" class="form-control" pattern="[0-9]{9}" placeholder="Precio de venta especial" >
+                </div>
+         
+                <div class="form-group col-md-1 col-sm-12  col-md-offset-8 col-md-pull-8">
+                   <!-- <button class="btn btn-primary"  onclick="RegistrarUsuario()"><strong>Registrar</strong></button> -->
+                   <input class="btn btn-primary" value="Registrar" type="submit" />
+                </div>
+                <div class="form-group col-md-1 col-sm-12 col-md-pull-7">
+                   <!-- <button class="btn btn-primary"  onclick="RegistrarUsuario()"><strong>Registrar</strong></button> -->
+                   <input id="btnrstRegistroAlumno" class="btn btn-primary" value="Cancelar" type="reset" /> 
+                </div>
+
+          
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+</form>

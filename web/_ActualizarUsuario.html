@@ -1,0 +1,63 @@
+
+<form id="formActualizarRegUsuario">
+<div>
+    <div >
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <p><strong>ACTUALIZAR USUARIO</strong></p>
+            </div>
+            <div class="panel-body">
+               
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Nombre </label>
+                    <input id="txtNombreUsActualizar" type="text" class="form-control" placeholder="Nombre" pattern="[A-Za-z ]{1,30}" disabled="disabled" required>
+                </div>
+
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Apellido Paterno </label>
+                    <input id="txtApePaternoUsuActualizar" type="text" class="form-control" placeholder="Ape. Paterno" pattern="[A-Za-z ]{1,30}"  disabled="disabled" required>
+                </div>
+
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Apellido Materno </label>
+                    <input id="txtApeMaternoUsuActualizar" type="text" class="form-control" placeholder="Ape. Materno" pattern="[A-Za-z ]{1,30}" disabled="disabled" required>
+                </div>
+
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Dni </label>
+                    <input id="txtDniUsuActualizar" type="text" class="form-control" placeholder="Dni" maxlength="8" pattern="[0-9]{8}" disabled="disabled" required>
+                </div>
+
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Usuario </label>
+                    <input id="txtUsuarioActualizar" type="text" class="form-control" maxlength="12" placeholder="Usuario" required >
+                </div>
+
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Password </label>
+                    <input id="txtPasswordActualizar" type="text"  class="form-control" placeholder="Ingrese Nuevo Password" required>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                    <label class="control-label">Rol </label>
+                    <select id="cmbrolUsuarioActualizar" class="form-control" required >                          
+                    </select>
+                </div>
+                
+                 <div class="form-group col-md-1 col-sm-12  col-md-offset-8 col-md-pull-8">
+                   <!-- <button class="btn btn-primary"  onclick="RegistrarUsuario()"><strong>Registrar</strong></button> -->
+                   <input class="btn btn-primary" value="Guardar Cambios" type="submit" />
+                </div>
+                <div class="form-group col-md-1 col-sm-12 col-md-pull-7">
+                   <!-- <button class="btn btn-primary"  onclick="RegistrarUsuario()"><strong>Registrar</strong></button> -->
+                   <input id="btnrstActualizarUsuario" class="btn btn-primary" value="Cancelar" type="reset" /> 
+                </div>
+
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+</form>

@@ -1,0 +1,153 @@
+<form id="formRegistroCliente">
+    <div>
+        <div>   
+            <div class="panel panel-info">                
+                <div class="panel-heading">
+                    <p><strong>REGISTRAR CLIENTE</strong></p>
+                </div>
+                <div class="panel-body">
+                    <br>
+
+                    <div class="form-group col-md-12 col-sm-6">
+                        <label class="control-label"> <span class="claseObligatorio">(*) Campos obligatorios</span></label>
+                    </div>
+
+                    <div class="form-group col-md-4 col-md-offset-4  col-md-pull-4">
+                        <label class="control-label">TIPO CLIENTE<span class="claseObligatorio"> (*)</span></label>
+                        <select  class="form-control" id="opcionTipoCliente" onchange="MostrarDiv()">
+                            <option value="1">Cliente Natural</option>                         
+                            <option value="2">Cliente Juridico</option>  
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">CODIGO CLIENTE <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtCodigo"  type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Codigo Generado Automaticamente" disabled="disabled">
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6" id="divRuc">
+                        <label class="control-label">RUC <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtRuc" type="text" class="form-control" maxlength="11" pattern="[0-9]{11}" placeholder="RUC" required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6" id="divDni">
+                        <label class="control-label">DNI <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtDni" type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Dni" required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6" id="divNombreEmpresa">
+                        <label class="control-label">NOMBRE EMPRESA <span class="claseObligatorio"> (*)</span></label>
+                        <input id="txtNombreEmpresa" type="text" class="form-control" placeholder="Nombre Empresa" maxlength="58" pattern="[A-Za-z ]{1,58}" required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6" id="divNombre">
+                        <label class="control-label">NOMBRES <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtNombre" type="text" class="form-control" placeholder="Nombre" pattern="[A-Za-z ]{1,30}" required>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6" id="divApPaterno">
+                        <label class="control-label">APELLIDO PATERNO <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtApePaterno" type="text" class="form-control" placeholder="Ape. Paterno" pattern="[A-Za-z ]{1,30}" required>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6" id="divApMaterno">
+                        <label class="control-label">APELLIDO MATERNO <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtApeMaterno" type="text" class="form-control" placeholder="Ape. Materno" pattern="[A-Za-z ]{1,30}" required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">TELEFONO</label>
+                        <input  id="txttelefono" type="tel" class="form-control" maxlength="14" pattern="[0-9]{14}" placeholder="Telefono" >
+                    </div>
+
+                    <div class="form-group col-md-8 col-sm-6">
+                        <label class="control-label">DIRECCION</label>
+                        <input id="txtDireccion" type="text" class="form-control" placeholder="Direccion" >
+                    </div> 
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">CORREO ELECTRONICO</label>
+                        <input id="txtemail" type="email" class="form-control" placeholder="Correo Electronico" >
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">GIRO DE NEGOCIO<span class="claseObligatorio">(*)</span></label>
+                        <select id="comboGiroNegocio" class="form-control" required>
+                            <option value="1">Minorista</option>
+                            <option value="2">Mayorista</option>
+                            <option value="3">Bodega</option>
+                            <option value="4">Ambulante</option>      
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">FRECUENCIA VISITA<span class="claseObligatorio">(*)</span></label>
+                        <select id="comboFrecuenciaVisita" class="form-control" required>
+                            <option value="1">Lunes - Miercoles</option>
+                            <option value="2">Martes - Viernes</option>
+                            <option value="3">Miercoles - Sabado</option>
+                            <option value="4">Una vez por Semana</option>      
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">RUTA</label>
+                        <select id="comboRuta" class="form-control" required>
+                            <option value="1">Ruta 1 </option>
+                            <option value="2">Ruta 2</option>                                
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-6">
+                        <label class="control-label">OBSERVACION CLIENTE</label>
+                        <input id="txtObservacion" type="text" class="form-control" placeholder="Observacion Cliente" >
+                    </div>
+
+                    <div class="form-group col-md-1 col-sm-12  col-md-offset-8 col-md-pull-8">
+                        <!-- <button class="btn btn-primary"  onclick="RegistrarUsuario()"><strong>Registrar</strong></button> -->
+                        <input class="btn btn-primary" value="Registrar" type="submit" />
+                    </div>
+                    <div class="form-group col-md-1 col-sm-12 col-md-pull-7">
+                        <!-- <button class="btn btn-primary"  onclick="RegistrarUsuario()"><strong>Registrar</strong></button> -->
+                        <input id="btnrstRegistroCliente" class="btn btn-primary" value="Cancelar" type="reset" /> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).on('ready', function () {
+        MostrarDiv()
+    });
+
+    function MostrarDiv() {
+        data = $('#opcionTipoCliente').val();
+        // alert (data);
+        if (data == '2') {
+            $('#divRuc').css({'display': 'block'});
+            $('#divDni').css({'display': 'none'});
+            $('#divNombreEmpresa').css({'display': 'block'});
+            $('#divNombre').css({'display': 'none'});
+            $('#divApPaterno').css({'display': 'none'});
+            $('#divApMaterno').css({'display': 'none'});
+
+            document.getElementById('txtRuc').disabled = false;
+            document.getElementById('txtDni').disabled = true;
+            document.getElementById('txtNombreEmpresa').disabled = false;
+            document.getElementById('txtNombre').disabled = true;
+            document.getElementById('txtApePaterno').disabled = true;
+            document.getElementById('txtApeMaterno').disabled = true;
+        }
+        if (data == '1') {
+            $('#divRuc').css({'display': 'none'});
+            $('#divDni').css({'display': 'block'});
+            $('#divNombreEmpresa').css({'display': 'none'});
+            $('#divNombre').css({'display': 'block'});
+            $('#divApPaterno').css({'display': 'block'});
+            $('#divApMaterno').css({'display': 'block'});
+
+            document.getElementById('txtRuc').disabled = true;
+            document.getElementById('txtDni').disabled = false;
+            document.getElementById('txtNombreEmpresa').disabled = true;
+            document.getElementById('txtNombre').disabled = false;
+            document.getElementById('txtApePaterno').disabled = false;
+            document.getElementById('txtApeMaterno').disabled = false;
+        }
+    }
+</script>

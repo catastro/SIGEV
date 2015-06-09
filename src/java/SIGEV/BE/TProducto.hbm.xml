@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TProducto" table="t_producto" catalog="calipsodb" optimistic-lock="version">
+        <id name="idproducto" type="int">
+            <column name="IDPRODUCTO" />
+            <generator class="assigned" />
+        </id>
+        <property name="codigo" type="string">
+            <column name="CODIGO" length="8" />
+        </property>
+        <property name="idcmarca" type="java.lang.Integer">
+            <column name="IDCMARCA" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="FECHA" length="10" />
+        </property>
+        <property name="nombreproducto" type="string">
+            <column name="NOMBREPRODUCTO" length="100" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <property name="preciocompra" type="java.lang.Double">
+            <column name="PRECIOCOMPRA" precision="22" scale="0" />
+        </property>
+        <property name="cantunidadesxcaja" type="java.lang.Integer">
+            <column name="CANTUNIDADESXCAJA" />
+        </property>
+        <property name="idproveedor" type="java.lang.Integer">
+            <column name="IDPROVEEDOR" />
+        </property>
+        <property name="stock" type="java.lang.Integer">
+            <column name="STOCK" />
+        </property>
+        <set name="TDetalleVentas" table="t_detalle_venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPRODUCTO" />
+            </key>
+            <one-to-many class="SIGEV.BE.TDetalleVenta" />
+        </set>
+        <set name="TDevolucionProductos" table="t_devolucion_producto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPRODUCTO" />
+            </key>
+            <one-to-many class="SIGEV.BE.TDevolucionProducto" />
+        </set>
+        <set name="TPrecios" table="t_precio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPRODUCTO" />
+            </key>
+            <one-to-many class="SIGEV.BE.TPrecio" />
+        </set>
+        <set name="TDetalleCompras" table="t_detalle_compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPRODUCTO" />
+            </key>
+            <one-to-many class="SIGEV.BE.TDetalleCompra" />
+        </set>
+    </class>
+</hibernate-mapping>

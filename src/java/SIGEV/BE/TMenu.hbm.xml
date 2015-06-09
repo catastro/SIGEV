@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TMenu" table="t_menu" catalog="calipsodb" optimistic-lock="version">
+        <id name="idmenu" type="int">
+            <column name="IDMENU" />
+            <generator class="assigned" />
+        </id>
+        <property name="denominacion" type="string">
+            <column name="DENOMINACION" length="100" />
+        </property>
+        <property name="idsuperior" type="java.lang.Integer">
+            <column name="IDSUPERIOR" />
+        </property>
+        <property name="orden" type="java.lang.Integer">
+            <column name="ORDEN" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <set name="TMenuRols" table="t_menu_rol" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDMENU" />
+            </key>
+            <one-to-many class="SIGEV.BE.TMenuRol" />
+        </set>
+    </class>
+</hibernate-mapping>

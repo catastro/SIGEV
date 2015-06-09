@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Factura" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="97c9d39b-7b36-4c95-9e65-278282f83c1f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="2e7402ec-cf74-4052-9ee6-ba1defff845c"/>
+	<subDataset name="dataset1" uuid="477a28b7-c572-4b0b-bf1a-ca43735d102d"/>
+	<parameter name="idVenta" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     t_venta.`IDVENTA` AS t_venta_IDVENTA,
+     t_venta.`IDCLIENTE` AS t_venta_IDCLIENTE,
+     t_venta.`MONTO` AS t_venta_MONTO,
+     t_venta.`ESTADO` AS t_venta_ESTADO,
+     t_venta.`TOTAL` AS t_venta_TOTAL,
+     t_venta.`IDCTIPOCOMPROVANTE` AS t_venta_IDCTIPOCOMPROVANTE,
+     t_venta.`NUMCOMPROVANTE` AS t_venta_NUMCOMPROVANTE,
+     t_venta.`IDRAZONSOCIAL` AS t_venta_IDRAZONSOCIAL,
+     t_venta.`IDCVENTA` AS t_venta_IDCVENTA,
+     t_cliente.`IDCLIENTE` AS t_cliente_IDCLIENTE,
+     t_cliente.`IDPERSONA` AS t_cliente_IDPERSONA,
+     t_cliente.`IDCTIPOCLIENTE` AS t_cliente_IDCTIPOCLIENTE,
+     t_cliente.`IDCRUTA` AS t_cliente_IDCRUTA,
+     t_cliente.`IDCFECUENCIAVISITA` AS t_cliente_IDCFECUENCIAVISITA,
+     t_cliente.`IDCTIPONEGOCIO` AS t_cliente_IDCTIPONEGOCIO,
+     t_cliente.`ESTADO` AS t_cliente_ESTADO,
+     t_persona.`IDPERSONA` AS t_persona_IDPERSONA,
+     t_persona.`DNI` AS t_persona_DNI,
+     t_persona.`NOMBRES` AS t_persona_NOMBRES,
+     t_persona.`APPPAT` AS t_persona_APPPAT,
+     t_persona.`APPMAT` AS t_persona_APPMAT,
+     t_persona.`DIRECCION` AS t_persona_DIRECCION,
+     t_persona.`ESTADO` AS t_persona_ESTADO,
+     t_razon_social.`IDRAZONSOCIAL` AS t_razon_social_IDRAZONSOCIAL,
+     t_razon_social.`IDUSUARIO` AS t_razon_social_IDUSUARIO,
+     t_razon_social.`DENOMINACION` AS t_razon_social_DENOMINACION,
+     t_razon_social.`ESTADO` AS t_razon_social_ESTADO,
+     t_razon_social.`RUC` AS t_razon_social_RUC,
+     t_detalle_venta.`IDDETALLEVENTA` AS t_detalle_venta_IDDETALLEVENTA,
+     t_detalle_venta.`IDVENTA` AS t_detalle_venta_IDVENTA,
+     t_detalle_venta.`IDPRODUCTO` AS t_detalle_venta_IDPRODUCTO,
+     t_detalle_venta.`CANTIDADVENTA` AS t_detalle_venta_CANTIDADVENTA,
+     t_detalle_venta.`PRECIOVENTAUNID` AS t_detalle_venta_PRECIOVENTAUNID,
+     t_detalle_venta.`DESCUENTO` AS t_detalle_venta_DESCUENTO,
+     t_detalle_venta.`SUBTOTAL` AS t_detalle_venta_SUBTOTAL,
+     t_detalle_venta.`ESTADO` AS t_detalle_venta_ESTADO,
+     t_producto.`IDPRODUCTO` AS t_producto_IDPRODUCTO,
+     t_producto.`CODIGO` AS t_producto_CODIGO,
+     t_producto.`IDCMARCA` AS t_producto_IDCMARCA,
+     t_producto.`FECHA` AS t_producto_FECHA,
+     t_producto.`NOMBREPRODUCTO` AS t_producto_NOMBREPRODUCTO,
+     t_producto.`ESTADO` AS t_producto_ESTADO,
+     t_producto.`PRECIOCOMPRAXCAJA` AS t_producto_PRECIOCOMPRAXCAJA,
+     t_producto.`CANTUNIDADESXCAJA` AS t_producto_CANTUNIDADESXCAJA,
+     t_producto.`PRECIOVENTAMAYOR` AS t_producto_PRECIOVENTAMAYOR,
+     t_producto.`PRECIOVENTAMENOR` AS t_producto_PRECIOVENTAMENOR,
+     t_producto.`PRECIOVENTAESPECIAL` AS t_producto_PRECIOVENTAESPECIAL,
+     t_producto.`IDPROVEEDOR` AS t_producto_IDPROVEEDOR
+FROM
+     `t_cliente` t_cliente INNER JOIN `t_venta` t_venta ON t_cliente.`IDCLIENTE` = t_venta.`IDCLIENTE`
+     INNER JOIN `t_persona` t_persona ON t_cliente.`IDPERSONA` = t_persona.`IDPERSONA`
+     INNER JOIN `t_detalle_venta` t_detalle_venta ON t_venta.`IDVENTA` = t_detalle_venta.`IDVENTA`
+     INNER JOIN `t_producto` t_producto ON t_detalle_venta.`IDPRODUCTO` = t_producto.`IDPRODUCTO`,
+     `t_razon_social` t_razon_social
+where  t_venta.`IDVENTA`=$P{idVenta} and t_venta.`IDCTIPOCOMPROVANTE`=19]]>
+	</queryString>
+	<field name="t_venta_IDVENTA" class="java.lang.Integer"/>
+	<field name="t_venta_IDCLIENTE" class="java.lang.Integer"/>
+	<field name="t_venta_MONTO" class="java.lang.Double"/>
+	<field name="t_venta_ESTADO" class="java.lang.String"/>
+	<field name="t_venta_TOTAL" class="java.lang.Double"/>
+	<field name="t_venta_IDCTIPOCOMPROVANTE" class="java.lang.Integer"/>
+	<field name="t_venta_NUMCOMPROVANTE" class="java.lang.String"/>
+	<field name="t_venta_IDRAZONSOCIAL" class="java.lang.Integer"/>
+	<field name="t_venta_IDCVENTA" class="java.lang.Integer"/>
+	<field name="t_cliente_IDCLIENTE" class="java.lang.Integer"/>
+	<field name="t_cliente_IDPERSONA" class="java.lang.Integer"/>
+	<field name="t_cliente_IDCTIPOCLIENTE" class="java.lang.Integer"/>
+	<field name="t_cliente_IDCRUTA" class="java.lang.Integer"/>
+	<field name="t_cliente_IDCFECUENCIAVISITA" class="java.lang.Integer"/>
+	<field name="t_cliente_IDCTIPONEGOCIO" class="java.lang.Integer"/>
+	<field name="t_cliente_ESTADO" class="java.lang.String"/>
+	<field name="t_persona_IDPERSONA" class="java.lang.Integer"/>
+	<field name="t_persona_DNI" class="java.lang.String"/>
+	<field name="t_persona_NOMBRES" class="java.lang.String"/>
+	<field name="t_persona_APPPAT" class="java.lang.String"/>
+	<field name="t_persona_APPMAT" class="java.lang.String"/>
+	<field name="t_persona_DIRECCION" class="java.lang.String"/>
+	<field name="t_persona_ESTADO" class="java.lang.String"/>
+	<field name="t_razon_social_IDRAZONSOCIAL" class="java.lang.Integer"/>
+	<field name="t_razon_social_IDUSUARIO" class="java.lang.Integer"/>
+	<field name="t_razon_social_DENOMINACION" class="java.lang.String"/>
+	<field name="t_razon_social_ESTADO" class="java.lang.String"/>
+	<field name="t_razon_social_RUC" class="java.lang.String"/>
+	<field name="t_detalle_venta_IDDETALLEVENTA" class="java.lang.Integer"/>
+	<field name="t_detalle_venta_IDVENTA" class="java.lang.Integer"/>
+	<field name="t_detalle_venta_IDPRODUCTO" class="java.lang.Integer"/>
+	<field name="t_detalle_venta_CANTIDADVENTA" class="java.lang.Integer"/>
+	<field name="t_detalle_venta_PRECIOVENTAUNID" class="java.lang.Double"/>
+	<field name="t_detalle_venta_DESCUENTO" class="java.lang.Double"/>
+	<field name="t_detalle_venta_SUBTOTAL" class="java.lang.Double"/>
+	<field name="t_detalle_venta_ESTADO" class="java.lang.String"/>
+	<field name="t_producto_IDPRODUCTO" class="java.lang.Integer"/>
+	<field name="t_producto_CODIGO" class="java.lang.String"/>
+	<field name="t_producto_IDCMARCA" class="java.lang.Integer"/>
+	<field name="t_producto_FECHA" class="java.sql.Date"/>
+	<field name="t_producto_NOMBREPRODUCTO" class="java.lang.String"/>
+	<field name="t_producto_ESTADO" class="java.lang.String"/>
+	<field name="t_producto_PRECIOCOMPRAXCAJA" class="java.lang.Double"/>
+	<field name="t_producto_CANTUNIDADESXCAJA" class="java.lang.Integer"/>
+	<field name="t_producto_PRECIOVENTAMAYOR" class="java.lang.Double"/>
+	<field name="t_producto_PRECIOVENTAMENOR" class="java.lang.Double"/>
+	<field name="t_producto_PRECIOVENTAESPECIAL" class="java.lang.Double"/>
+	<field name="t_producto_IDPROVEEDOR" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="148" splitType="Stretch">
+			<image>
+				<reportElement uuid="1fbcbad2-d8f8-4625-902b-5402f3214ffd" x="0" y="1" width="381" height="145"/>
+				<imageExpression><![CDATA["D:\\clicnet\\PROYECTO ALMACEN\\factura.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="361b4fb1-f7fc-4272-9a23-1c4ab2bb2a91" x="16" y="0" width="54" height="20"/>
+				<textElement>
+					<font fontName="Lucida Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Señor(es):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bf158481-2e96-45ec-82f5-eb35f9587dd3" x="16" y="20" width="54" height="20"/>
+				<textElement>
+					<font fontName="Lucida Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Dirección:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="568872cf-fa3a-4f19-8d25-ab24c9386c92" x="70" y="0" width="311" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{t_persona_NOMBRES} +" "+$F{t_persona_APPPAT}+" "+$F{t_persona_APPMAT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebcc4374-3e27-4baf-86e6-fb68257445fd" x="70" y="20" width="164" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{t_persona_DIRECCION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="3d0f26d9-c464-4fc4-9dc5-c704af5a920d" x="245" y="20" width="38" height="20"/>
+				<textElement>
+					<font fontName="Lucida Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[R.U.C:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="7bae14ba-c366-497f-9219-a6362e50c562" x="281" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{t_persona_DNI}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="11d02c48-65b7-480f-9322-50867548a906" style="table_CH" x="128" y="0" width="41" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANT.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="44ac1cbd-3906-4f76-a4c9-737a95533e59" style="table_CH" x="169" y="0" width="38" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[P UNIT.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8df5b632-9f97-4c1a-a114-bd1d70ac6fb3" style="table_CH" x="207" y="0" width="61" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1c01ede5-9788-445d-b46c-5dda8a8bd465" style="table_CH" x="1" y="0" width="127" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRODUCTO	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="127c87bf-e683-4617-8903-18fe8b936806" style="table_CH" x="450" y="0" width="38" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[P UNIT.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3a7dd384-a1b6-492d-9561-2e1b961526c7" style="table_CH" x="409" y="0" width="41" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANT.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="371f562d-831f-44dd-9c45-975ab825c963" style="table" x="268" y="0" width="128" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_producto_NOMBREPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c3c86575-05ea-4f7d-9542-4030a2994cb6" style="table_CH" x="488" y="0" width="61" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8e69208d-a7fd-45fa-bed9-227c2f6a0302" style="table_CH" x="281" y="0" width="127" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRODUCTO	]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="f5b87e7b-ad82-4a39-8541-736607dcd07e" style="table" x="1" y="0" width="127" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_producto_NOMBREPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5c983425-c6d8-4781-ad71-506c236120f0" style="table" x="128" y="0" width="41" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_detalle_venta_CANTIDADVENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="da325a60-7b90-4866-a5b5-ca87a586b81e" style="table" x="170" y="0" width="37" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_producto_PRECIOVENTAMENOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1052fb39-5691-45f6-a0f6-1c98047584ee" style="table" x="207" y="0" width="61" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_detalle_venta_CANTIDADVENTA}*$F{t_producto_PRECIOVENTAMENOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ee4813e2-bbd9-4222-9890-d59c2f40ffd6" x="281" y="0" width="127" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{t_producto_NOMBREPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6ff3184e-2fd0-485e-a844-2c9d98cdce45" x="409" y="0" width="41" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{t_detalle_venta_CANTIDADVENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ae1c94e2-2c17-4f9e-b1b1-5bd2547853ba" x="450" y="0" width="38" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{t_detalle_venta_PRECIOVENTAUNID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="366c54a5-07d1-4f6f-87c9-e3b8f86520f8" x="488" y="0" width="61" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{t_detalle_venta_SUBTOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="157" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b45509a9-6ee1-4f6b-be6a-cd97fd5ec7af" style="table" x="1" y="0" width="487" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SON:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7432ed14-0406-4eec-ac8d-72293e52cf31" x="232" y="118" width="54" height="15"/>
+				<textElement/>
+				<text><![CDATA[Cancelado]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="6aafad90-e3a0-4094-8e44-24324824f3f2" x="207" y="117" width="100" height="1"/>
+			</line>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="07460a61-cf72-438e-9d7d-8f26ada67140" x="207" y="47" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f0099755-52de-4e66-89e5-6f163925b4f4" style="table_CH" x="409" y="32" width="79" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUB TOTAL S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="612b033d-437f-49ef-b59d-ef64f6b31733" x="155" y="47" width="52" height="20"/>
+				<textElement/>
+				<text><![CDATA[Ayacucho,]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="085cf969-5fb9-427d-bd6e-61076a94163b" x="488" y="32" width="67" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_detalle_venta_SUBTOTAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5ee5042f-04be-40ff-9bb1-c88eb4f8a87e" style="table_CH" x="409" y="52" width="54" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[I.G.V]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f56e55c6-8e3a-48c5-a3ed-795d80f2d429" x="488" y="73" width="67" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_venta_TOTAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c3af8900-07d0-4ff4-9715-eaa8367b7a87" style="table_CH" x="409" y="73" width="54" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2ca436ee-a45c-4cf3-a210-41d9028a4ce3" x="408" y="137" width="130" height="20"/>
+				<textElement/>
+				<text><![CDATA[ADQUIRIENTE O USUARIO]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

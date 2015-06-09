@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TVenta" table="t_venta" catalog="calipsodb" optimistic-lock="version">
+        <id name="idventa" type="int">
+            <column name="IDVENTA" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="TCliente" class="SIGEV.BE.TCliente" fetch="select">
+            <column name="IDCLIENTE" />
+        </many-to-one>
+        <property name="monto" type="java.lang.Double">
+            <column name="MONTO" precision="22" scale="0" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <property name="total" type="java.lang.Double">
+            <column name="TOTAL" precision="22" scale="0" />
+        </property>
+        <property name="idctipocomprovante" type="java.lang.Integer">
+            <column name="IDCTIPOCOMPROVANTE" />
+        </property>
+        <property name="numcomprovante" type="string">
+            <column name="NUMCOMPROVANTE" length="20" />
+        </property>
+        <property name="idrazonsocial" type="java.lang.Integer">
+            <column name="IDRAZONSOCIAL" />
+        </property>
+        <property name="idcventa" type="java.lang.Integer">
+            <column name="IDCVENTA" />
+        </property>
+        <property name="idpersonal" type="java.lang.Integer">
+            <column name="IDPERSONAL" />
+        </property>
+        <set name="TDetalleVentas" table="t_detalle_venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDVENTA" />
+            </key>
+            <one-to-many class="SIGEV.BE.TDetalleVenta" />
+        </set>
+        <set name="TFrecuencias" table="t_frecuencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDVENTA" />
+            </key>
+            <one-to-many class="SIGEV.BE.TFrecuencia" />
+        </set>
+    </class>
+</hibernate-mapping>

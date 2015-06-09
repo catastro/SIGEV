@@ -1,0 +1,153 @@
+<form id="formActualizarClient">
+    <div>
+        <div>   
+            <div class="panel panel-info">                
+                <div class="panel-heading">
+                    <p><strong>ACTUALIZAR CLIENTE</strong></p>
+                </div>
+                <div class="panel-body">
+                    <br>
+
+                    <div class="form-group col-md-12 col-sm-6">
+                        <label class="control-label"> <span class="claseObligatorio">(*) Campos obligatorios</span></label>
+                    </div>
+
+                    <div class="form-group col-md-4 col-md-offset-4  col-md-pull-4">
+                        <label class="control-label">TIPO CLIENTE<span class="claseObligatorio"> (*)</span></label>
+                        <select  class="form-control" id="opcionTipoClienteActualiza" onchange="MostrarDivActualizar()" disabled="disabled">
+                            <option value="1">Cliente Natural</option>                        
+                            <option value="2">Cliente Juridico</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">CODIGO CLIENTE <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtCodigoActualizar"  type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Codigo" autofocus="autofocus" required disabled="disabled">
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6" id="divRucActualizar">
+                        <label class="control-label">RUC <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtRucActualizar" type="text" class="form-control" maxlength="11" pattern="[0-9]{11}" placeholder="RUC" required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6" id="divDniActualizar">
+                        <label class="control-label">DNI <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtDniActualizar" type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Dni" required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6" id="divNombreEmpresaActualizar">
+                        <label class="control-label">NOMBRE EMPRESA <span class="claseObligatorio"> (*)</span></label>
+                        <input id="txtNombreEmpresaActualizar" type="text" class="form-control" placeholder="Nombre Empresa" maxlength="58" pattern="[A-Za-z ]{1,58}" required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6" id="divNombreActualizar">
+                        <label class="control-label">NOMBRES <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtNombreActualizar" type="text" class="form-control" placeholder="Nombre" pattern="[A-Za-z ]{1,30}" required>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6" id="divApPaternoActualizar">
+                        <label class="control-label">APELLIDO PATERNO <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtApePaternoActualizar" type="text" class="form-control" placeholder="Ape. Paterno" pattern="[A-Za-z ]{1,30}" required>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6" id="divApMaternoActualizar">
+                        <label class="control-label">APELLIDO MATERNO <span class="claseObligatorio">(*)</span></label>
+                        <input id="txtApeMaternoActualizar" type="text" class="form-control" placeholder="Ape. Materno" pattern="[A-Za-z ]{1,30}" required>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">TELEFONO</label>
+                        <input  id="txttelefonoActualizar" type="tel" class="form-control" maxlength="14" pattern="[0-9]{6,14}" placeholder="Telefono" >
+                    </div>
+
+                    <div class="form-group col-md-8 col-sm-6">
+                        <label class="control-label">DIRECCION</label>
+                        <input id="txtDireccionActualizar" type="text" class="form-control" placeholder="Direccion" >
+                    </div> 
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">CORREO ELECTRONICO</label>
+                        <input id="txtemailActualizar" type="email" class="form-control" placeholder="Correo Electronico" >
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">GIRO DE NEGOCIO<span class="claseObligatorio">(*)</span></label>
+                        <select id="comboGiroNegocioActualizar" class="form-control" required>
+                            <option value="1">Minorista</option>
+                            <option value="2">Mayorista</option>
+                            <option value="3">Bodega</option>
+                            <option value="4">Ambulante</option>      
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">FRECUENCIA VISITA<span class="claseObligatorio">(*)</span></label>
+                        <select id="comboFrecuenciaVisitaActualizar" class="form-control" required>
+                            <option value="1">Lunes - Miercoles</option>
+                            <option value="2">Martes - Viernes</option>
+                            <option value="3">Miercoles - Sabado</option>
+                            <option value="4">Una vez por Semana</option>      
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">RUTA</label>
+                        <select id="comboRutaActualizar" class="form-control" required>
+                            <option value="1">Ruta 1 </option>
+                            <option value="2">Ruta 2</option>                                
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-6">
+                        <label class="control-label">OBSERVACION CLIENTE</label>
+                        <input id="txtObservacionActualizar" type="text" class="form-control" placeholder="Observacion Cliente" >
+                    </div>
+
+                    <div class="form-group col-md-1 col-sm-12  col-md-offset-8 col-md-pull-8">
+                        <!-- <button class="btn btn-primary"  onclick="RegistrarUsuario()"><strong>Registrar</strong></button> -->
+                        <input class="btn btn-primary" value="Registrar" type="submit" />
+                    </div>
+                    <div class="form-group col-md-1 col-sm-12 col-md-pull-7">
+                        <!-- <button class="btn btn-primary"  onclick="RegistrarUsuario()"><strong>Registrar</strong></button> -->
+                        <input id="btnrstActualizarCliente" class="btn btn-primary" value="Cancelar" type="reset" /> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).on('ready', function() {
+        MostrarDivActualizar();
+    });
+
+    function MostrarDivActualizar() {
+        data = $('#opcionTipoClienteActualiza').val();
+        // alert (data);
+        if (data == '2') {
+            $('#divRucActualizar').css({'display': 'block'});
+            $('#divDniActualizar').css({'display': 'none'});
+            $('#divNombreEmpresaActualizar').css({'display': 'block'});
+            $('#divNombreActualizar').css({'display': 'none'});
+            $('#divApPaternoActualizar').css({'display': 'none'});
+            $('#divApMaternoActualizar').css({'display': 'none'});
+
+            document.getElementById('txtRucActualizar').disabled = false;
+            document.getElementById('txtDniActualizar').disabled = true;
+            document.getElementById('txtNombreEmpresaActualizar').disabled = false;
+            document.getElementById('txtNombreActualizar').disabled = true;
+            document.getElementById('txtApePaternoActualizar').disabled = true;
+            document.getElementById('txtApeMaternoActualizar').disabled = true;
+        }
+        if (data == '1') {
+            $('#divRucActualizar').css({'display': 'none'});
+            $('#divDniActualizar').css({'display': 'block'});
+            $('#divNombreEmpresaActualizar').css({'display': 'none'});
+            $('#divNombreActualizar').css({'display': 'block'});
+            $('#divApPaternoActualizar').css({'display': 'block'});
+            $('#divApMaternoActualizar').css({'display': 'block'});
+
+            document.getElementById('txtRucActualizar').disabled = true;
+            document.getElementById('txtDniActualizar').disabled = false;
+            document.getElementById('txtNombreEmpresaActualizar').disabled = true;
+            document.getElementById('txtNombreActualizar').disabled = false;
+            document.getElementById('txtApePaternoActualizar').disabled = false;
+            document.getElementById('txtApeMaternoActualizar').disabled = false;
+        }
+    }
+</script>

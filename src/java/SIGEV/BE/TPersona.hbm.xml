@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TPersona" table="t_persona" catalog="calipsodb" optimistic-lock="version">
+        <id name="idpersona" type="int">
+            <column name="IDPERSONA" />
+            <generator class="increment" />
+        </id>
+        <property name="dni" type="string">
+            <column name="DNI" length="8" />
+        </property>
+        <property name="nombres" type="string">
+            <column name="NOMBRES" length="40" />
+        </property>
+        <property name="apppat" type="string">
+            <column name="APPPAT" length="30" />
+        </property>
+        <property name="appmat" type="string">
+            <column name="APPMAT" length="30" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="15" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" length="100" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="100" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <property name="codigo" type="string">
+            <column name="CODIGO" length="8" />
+        </property>
+        <property name="ruc" type="string">
+            <column name="RUC" length="12" />
+        </property>
+        <property name="razonsocial" type="string">
+            <column name="RAZONSOCIAL" length="60" />
+        </property>
+        <set name="TUsuarios" table="t_usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPERSONA" />
+            </key>
+            <one-to-many class="SIGEV.BE.TUsuario" />
+        </set>
+        <set name="TProveedors" table="t_proveedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPERSONA" />
+            </key>
+            <one-to-many class="SIGEV.BE.TProveedor" />
+        </set>
+        <set name="TClientes" table="t_cliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPERSONA" />
+            </key>
+            <one-to-many class="SIGEV.BE.TCliente" />
+        </set>
+        <set name="TPersonals" table="t_personal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPERSONA" />
+            </key>
+            <one-to-many class="SIGEV.BE.TPersonal" />
+        </set>
+    </class>
+</hibernate-mapping>

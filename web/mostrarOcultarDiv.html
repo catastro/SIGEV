@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script type="text/javascript">            
+            function mostrar(num) {
+                obj = document.getElementById('c' + (num + 1));
+                ver.style.display = 'none';
+                obj.style.display = 'block';
+                ver = obj;
+            }
+        </script>
+        <script>
+            
+
+        </script>
+
+    </head>
+    <body onload = "ver = document.getElementById('c1')">
+
+        <label> lista de opciones</label>
+            <select name="select" id="select" onChange="mostrar(this.selectedIndex)">
+                <option value="580">opcion1</option>
+                <option value="1044">opcion2</option>
+                <option value="650">opcion3</option>
+                <option value="1044">opcion4</option>
+                <option value="650">opcion5</option>
+                <option value="1044">opcion6</option>
+                <option value="650">opcion7</option>
+                <option value="1044">opcion8</option>
+                <option value="650">opcion9</option>
+                <option value="1044">opcion10</option>
+                <option value="650">opcion11</option>
+                <option value="1044">opcion12</option>
+            </select>
+            <div id="c1">capa 1</div>
+            <div id="c2" style="display:none">capa 2</div>
+            <div id="c3" style="display:none">capa 3</div>
+            <div id="c4" style="display:none">capa 4</div>
+            <div id="c5" style="display:none">capa 5</div>
+            <div id="c6" style="display:none">capa 6</div>
+            <div id="c7" style="display:none">capa 7</div>
+            <div id="c8" style="display:none">capa 8</div>
+            <div id="c9" style="display:none">capa 9</div>
+            <div id="c10" style="display:none">capa 10</div>
+            <div id="c11" style="display:none">capa 11</div>
+            <div id="c12" style="display:none">capa 12</div>
+
+        
+    </body>
+</html> 
+

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TCompra" table="t_compra" catalog="calipsodb" optimistic-lock="version">
+        <id name="idcompra" type="int">
+            <column name="IDCOMPRA" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="TProveedor" class="SIGEV.BE.TProveedor" fetch="select">
+            <column name="IDPROVEEDOR" />
+        </many-to-one>
+        <property name="montocompra" type="java.lang.Double">
+            <column name="MONTOCOMPRA" precision="22" scale="0" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <property name="comprovante" type="string">
+            <column name="COMPROVANTE" length="20" />
+        </property>
+        <property name="idrazonsocial" type="java.lang.Integer">
+            <column name="IDRAZONSOCIAL" />
+        </property>
+        <property name="idcestadocompra" type="java.lang.Integer">
+            <column name="IDCESTADOCOMPRA" />
+        </property>
+        <set name="TDetalleCompras" table="t_detalle_compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCOMPRA" />
+            </key>
+            <one-to-many class="SIGEV.BE.TDetalleCompra" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,83 @@
+
+<form id="formRegistrousuario">
+    <div>
+        <div >
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <p><strong>REGISTRAR USUARIO</strong></p>
+                </div>
+                <div class="panel-body">
+                    <!--
+                                        <div class="form-group col-md-4 col-sm-6">
+                                            <label class="control-label">Dni </label> <span class="glyphicon glyphicon-search"> &nbsp;</span> 
+                                            <input id="txtDni" type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Dni" required>
+                                        </div>
+                    
+                                        <div class="form-group col-md-4 col-sm-6">
+                                            <div class="form-group has-feedback">
+                                                <label class="control-label" for="inputSuccess2">Name</label>
+                                                <input type="text" class="form-control" id="inputSuccess2"/>
+                                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                            </div>
+                                        </div>
+                    -->                    
+                    <div class="form-group col-md-4 col-sm-6">   
+                        <label class="control-label" >Dni</label>
+                        <div class="input-group">
+                            <input id="txtDni" type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" placeholder="Dni" required/>
+                            
+                            <span id="spnbuscarpersona" class="input-group-addon">
+                                <i class="glyphicon glyphicon-search "></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Nombre </label>
+                        <input id="txtNombre" type="text" class="form-control "  placeholder="Nombre" pattern="[A-Za-z ]{1,30}" required disabled="disabled">
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Apellido Paterno </label>
+                        <input id="txtApePaterno" type="text" class="form-control "  placeholder="Ap. Paterno" pattern="[A-Za-z ]{1,30}" required disabled="disabled">
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label">Apellido Materno </label>
+                        <input id="txtApeMaterno" type="text" class="form-control "  placeholder="Ap. Materno" pattern="[A-Za-z ]{1,30}" required disabled="disabled">
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="control-label">Usuario</label>
+                            <input id="txtUsuario" type="text" class="form-control" maxlength="12" placeholder="Usuario" required />
+                            <i class="form-control-feedback glyphicon glyphicon-user "></i>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6 ">
+                        <label class="control-label">Password </label>
+                        <input id="txtPassword" type="text" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6 col-md-pull-8">
+                        <label class="control-label">Rol </label>
+                        <select id="cmbrolUsuario" class="form-control" required>
+
+                        </select>
+                    </div>                
+                    <div class="form-group col-md-1 col-sm-12  col-md-offset-8 col-md-pull-8">
+                        <!-- <button class="btn btn-primary"  onclick="RegistrarUsuario()"><strong>Registrar</strong></button> -->
+                        <input class="btn btn-primary" value="Registrar" type="submit" />
+                    </div>
+                    <div class="form-group col-md-1 col-sm-12 col-md-pull-7">
+                        <!-- <button class="btn btn-primary"  onclick="RegistrarUsuario()"><strong>Registrar</strong></button> -->
+                        <input id="btnrstRegistroUsuario" class="btn btn-primary" value="Cancelar" type="reset" /> 
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</form>

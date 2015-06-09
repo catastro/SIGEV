@@ -1,0 +1,27 @@
+[
+    {
+            "codigo" : "001",
+            "alumno": "jenifer",
+            "serie": "200"
+    },
+    {
+            "codigo" : "002",
+            "alumno": "orlando",
+            "serie": "400"
+    },
+    {
+            "codigo" : "003",
+            "alumno": "ruth",
+            "serie": "300"
+    },
+    {
+            "codigo" : "004",
+            "alumno": "kiara",
+            "serie": "200"
+    },
+    {
+            "codigo" : "005",
+            "alumno": "robert",
+            "serie": "100"
+    }
+]

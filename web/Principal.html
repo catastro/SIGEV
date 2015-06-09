@@ -1,0 +1,93 @@
+
+
+<br>
+<br>
+<br>
+<div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3 class="text-left">BIENVENIDOS</h3>
+            <hr/>
+        </div>        
+        
+    </div>    
+    <div class="row">
+        <div class="col-md-4 col-sm-12">            
+                    <label class="control-label">Seleccione Razon Social</label>
+                    <select id="cmbModalidadPago" class="form-control" required>
+                        <option>Inversiones Fargoz</option>
+                        <option>Inversiones A&Y Pariona</option>
+                    </select>
+        </div>        
+         <div class="col-md-4 col-sm-12">            
+                    <label class="control-label">&nbsp;&nbsp;&nbsp </label>
+                    <br>
+                    <input type="button" class="btn btn-primary" value="Cambiar Razon">
+        </div>        
+        
+    </div>    
+</div>
+<center>
+<img src="Content/Image/socios-de-mexico.gif" alt=""/>
+</center>
+
+
+<script>
+    
+    $("#formcambiarCicloAcademico").submit(function () {
+            cambiarCicloAcademico();
+            return false;
+    });
+    
+    function cambiarCicloAcademico(){
+        
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "PrincipalServlet",
+        data: {
+            idCiclo: $('#cmbCicloAcademicoActual').val(),
+            action: '3',
+            denominacionCiclo :$("#cmbCicloAcademicoActual option:selected").text()
+        },
+        success: function (data) {
+            if(data===true){
+                alert("Cambiando Ciclo");
+                window.location.reload();
+            }
+            else{
+                alert("Error");
+            }
+            
+        },
+        error: function (error) {
+            alert("Error al obtener la lista de ciclos academicos" + error.toString());
+        }
+    });
+
+        
+    }
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "PrincipalServlet",
+        data: {
+            action: '2'
+        },
+        success: function (data) {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++)
+                {
+                    $("#cmbCicloAcademicoActual").append("<option value=" + data[i].idciclo + ">" + data[i].denominacion + "</option>");
+                }
+                //$("#cmbCicloAcademicoActual").setval(4);
+            }
+        },
+        error: function (error) {
+            alert("Error al obtener la lista de ciclos academicos" + error.toString());
+        }
+    });
+
+
+</script>

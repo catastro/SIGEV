@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/calipsodb?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password"/>
+    <property name="show_sql">true</property>
+    <property name="connection.pool_size">1</property>
+    <mapping resource="SIGEV/BE/TCliente.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TContenedor.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TPrecio.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TProveedor.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TPago.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TMenuRol.hbm.xml"/>
+    <mapping resource="SIGEV/BE/THistorialAsistencia.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TPrivilegio.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TFrecuencia.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TRol.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TDevolucionProducto.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TPersona.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TCajaDetalle.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TPersonal.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TUsuario.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TCompra.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TRazonSocial.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TBoveda.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TDetalleVenta.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TRolPrivilegio.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TVenta.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TCaja.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TProducto.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TMenu.hbm.xml"/>
+    <mapping resource="SIGEV/BE/TDetalleCompra.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

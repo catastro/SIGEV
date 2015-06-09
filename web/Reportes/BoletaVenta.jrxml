@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BoletaVenta" pageWidth="269" pageHeight="532" orientation="Landscape" columnWidth="229" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="97c9d39b-7b36-4c95-9e65-278282f83c1f">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="2e7402ec-cf74-4052-9ee6-ba1defff845c"/>
+	<parameter name="idVenta" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="idTipoComprobante" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaEmision" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     t_venta.`IDVENTA` AS t_venta_IDVENTA,
+     t_venta.`IDCLIENTE` AS t_venta_IDCLIENTE,
+     t_venta.`MONTO` AS t_venta_MONTO,
+     t_venta.`ESTADO` AS t_venta_ESTADO,
+     t_venta.`TOTAL` AS t_venta_TOTAL,
+     t_venta.`IDCTIPOCOMPROVANTE` AS t_venta_IDCTIPOCOMPROVANTE,
+     t_venta.`NUMCOMPROVANTE` AS t_venta_NUMCOMPROVANTE,
+     t_venta.`IDRAZONSOCIAL` AS t_venta_IDRAZONSOCIAL,
+     t_venta.`IDCVENTA` AS t_venta_IDCVENTA,
+     t_cliente.`IDCLIENTE` AS t_cliente_IDCLIENTE,
+     t_cliente.`IDPERSONA` AS t_cliente_IDPERSONA,
+     t_cliente.`IDCTIPOCLIENTE` AS t_cliente_IDCTIPOCLIENTE,
+     t_cliente.`IDCRUTA` AS t_cliente_IDCRUTA,
+     t_cliente.`IDCFECUENCIAVISITA` AS t_cliente_IDCFECUENCIAVISITA,
+     t_cliente.`IDCTIPONEGOCIO` AS t_cliente_IDCTIPONEGOCIO,
+     t_cliente.`ESTADO` AS t_cliente_ESTADO,
+     t_persona.`IDPERSONA` AS t_persona_IDPERSONA,
+     t_persona.`DNI` AS t_persona_DNI,
+     t_persona.`NOMBRES` AS t_persona_NOMBRES,
+     t_persona.`APPPAT` AS t_persona_APPPAT,
+     t_persona.`APPMAT` AS t_persona_APPMAT,
+     t_persona.`DIRECCION` AS t_persona_DIRECCION,
+     t_persona.`ESTADO` AS t_persona_ESTADO,
+     t_detalle_venta.`IDDETALLEVENTA` AS t_detalle_venta_IDDETALLEVENTA,
+     t_detalle_venta.`IDVENTA` AS t_detalle_venta_IDVENTA,
+     t_detalle_venta.`IDPRODUCTO` AS t_detalle_venta_IDPRODUCTO,
+     t_detalle_venta.`CANTIDADVENTA` AS t_detalle_venta_CANTIDADVENTA,
+     t_detalle_venta.`PRECIOVENTAUNID` AS t_detalle_venta_PRECIOVENTAUNID,
+     t_detalle_venta.`DESCUENTO` AS t_detalle_venta_DESCUENTO,
+     t_detalle_venta.`SUBTOTAL` AS t_detalle_venta_SUBTOTAL,
+     t_detalle_venta.`ESTADO` AS t_detalle_venta_ESTADO,
+     t_producto.`IDPRODUCTO` AS t_producto_IDPRODUCTO,
+     t_producto.`CODIGO` AS t_producto_CODIGO,
+     t_producto.`IDCMARCA` AS t_producto_IDCMARCA,
+     t_producto.`FECHA` AS t_producto_FECHA,
+     t_producto.`NOMBREPRODUCTO` AS t_producto_NOMBREPRODUCTO,
+     t_producto.`ESTADO` AS t_producto_ESTADO,
+     t_producto.`CANTUNIDADESXCAJA` AS t_producto_CANTUNIDADESXCAJA,
+     t_producto.`IDPROVEEDOR` AS t_producto_IDPROVEEDOR,
+     t_producto.`PRECIOCOMPRA` AS t_producto_PRECIOCOMPRA,
+     t_producto.`STOCK` AS t_producto_STOCK
+FROM
+     `t_cliente` t_cliente INNER JOIN `t_venta` t_venta ON t_cliente.`IDCLIENTE` = t_venta.`IDCLIENTE`
+     INNER JOIN `t_persona` t_persona ON t_cliente.`IDPERSONA` = t_persona.`IDPERSONA`
+     INNER JOIN `t_detalle_venta` t_detalle_venta ON t_venta.`IDVENTA` = t_detalle_venta.`IDVENTA`
+     INNER JOIN `t_producto` t_producto ON t_detalle_venta.`IDPRODUCTO` = t_producto.`IDPRODUCTO`
+WHERE
+     t_venta.`IDVENTA` = $P{idVenta}
+     and t_venta.`IDCTIPOCOMPROVANTE` = $P{idTipoComprobante}]]>
+	</queryString>
+	<field name="t_venta_IDVENTA" class="java.lang.Integer"/>
+	<field name="t_venta_IDCLIENTE" class="java.lang.Integer"/>
+	<field name="t_venta_MONTO" class="java.lang.Double"/>
+	<field name="t_venta_ESTADO" class="java.lang.String"/>
+	<field name="t_venta_TOTAL" class="java.lang.Double"/>
+	<field name="t_venta_IDCTIPOCOMPROVANTE" class="java.lang.Integer"/>
+	<field name="t_venta_NUMCOMPROVANTE" class="java.lang.String"/>
+	<field name="t_venta_IDRAZONSOCIAL" class="java.lang.Integer"/>
+	<field name="t_venta_IDCVENTA" class="java.lang.Integer"/>
+	<field name="t_cliente_IDCLIENTE" class="java.lang.Integer"/>
+	<field name="t_cliente_IDPERSONA" class="java.lang.Integer"/>
+	<field name="t_cliente_IDCTIPOCLIENTE" class="java.lang.Integer"/>
+	<field name="t_cliente_IDCRUTA" class="java.lang.Integer"/>
+	<field name="t_cliente_IDCFECUENCIAVISITA" class="java.lang.Integer"/>
+	<field name="t_cliente_IDCTIPONEGOCIO" class="java.lang.Integer"/>
+	<field name="t_cliente_ESTADO" class="java.lang.String"/>
+	<field name="t_persona_IDPERSONA" class="java.lang.Integer"/>
+	<field name="t_persona_DNI" class="java.lang.String"/>
+	<field name="t_persona_NOMBRES" class="java.lang.String"/>
+	<field name="t_persona_APPPAT" class="java.lang.String"/>
+	<field name="t_persona_APPMAT" class="java.lang.String"/>
+	<field name="t_persona_DIRECCION" class="java.lang.String"/>
+	<field name="t_persona_ESTADO" class="java.lang.String"/>
+	<field name="t_detalle_venta_IDDETALLEVENTA" class="java.lang.Integer"/>
+	<field name="t_detalle_venta_IDVENTA" class="java.lang.Integer"/>
+	<field name="t_detalle_venta_IDPRODUCTO" class="java.lang.Integer"/>
+	<field name="t_detalle_venta_CANTIDADVENTA" class="java.lang.Integer"/>
+	<field name="t_detalle_venta_PRECIOVENTAUNID" class="java.lang.Double"/>
+	<field name="t_detalle_venta_DESCUENTO" class="java.lang.Double"/>
+	<field name="t_detalle_venta_SUBTOTAL" class="java.lang.Double"/>
+	<field name="t_detalle_venta_ESTADO" class="java.lang.String"/>
+	<field name="t_producto_IDPRODUCTO" class="java.lang.Integer"/>
+	<field name="t_producto_CODIGO" class="java.lang.String"/>
+	<field name="t_producto_IDCMARCA" class="java.lang.Integer"/>
+	<field name="t_producto_FECHA" class="java.sql.Date"/>
+	<field name="t_producto_NOMBREPRODUCTO" class="java.lang.String"/>
+	<field name="t_producto_ESTADO" class="java.lang.String"/>
+	<field name="t_producto_CANTUNIDADESXCAJA" class="java.lang.Integer"/>
+	<field name="t_producto_IDPROVEEDOR" class="java.lang.Integer"/>
+	<field name="t_producto_PRECIOCOMPRA" class="java.lang.Double"/>
+	<field name="t_producto_STOCK" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="170" y="30" width="59" height="10" uuid="8c54e2eb-27ad-4775-86e1-6d695b2456fc"/>
+				<textElement>
+					<font size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fechaEmision}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="39" y="17" width="129" height="12" uuid="ebcc4374-3e27-4baf-86e6-fb68257445fd"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_persona_DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="17" width="39" height="12" uuid="7bae14ba-c366-497f-9219-a6362e50c562"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_persona_DNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="4" width="188" height="12" uuid="568872cf-fa3a-4f19-8d25-ab24c9386c92"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_persona_NOMBRES} +" "+$F{t_persona_APPPAT}+" "+$F{t_persona_APPMAT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="175" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="10" uuid="5a20d4b0-e8d7-4517-a547-5f8691cf3fab"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_producto_NOMBREPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="35" height="10" uuid="2a2d4b12-5867-4c69-b72c-9a8052e324a5"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_detalle_venta_CANTIDADVENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="0" width="55" height="10" uuid="765760b1-d039-4e33-a970-335cffdc3c0d"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_detalle_venta_PRECIOVENTAUNID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="39" height="10" uuid="e710144a-9366-4ddc-8090-c3cbd726afda"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_detalle_venta_SUBTOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="188" y="2" width="41" height="12" uuid="9896ab83-dc05-4718-8d2e-f6824ed0d4fb"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_venta_MONTO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

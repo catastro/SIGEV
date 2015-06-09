@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TCaja" table="t_caja" catalog="calipsodb" optimistic-lock="version">
+        <id name="idcaja" type="int">
+            <column name="IDCAJA" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="TBoveda" class="SIGEV.BE.TBoveda" fetch="select">
+            <column name="IDBOVEDA" />
+        </many-to-one>
+        <many-to-one name="TUsuario" class="SIGEV.BE.TUsuario" fetch="select">
+            <column name="IDUSUARIO" />
+        </many-to-one>
+        <property name="monto" type="java.lang.Double">
+            <column name="MONTO" precision="22" scale="0" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <property name="idrazonsocial" type="java.lang.Integer">
+            <column name="IDRAZONSOCIAL" />
+        </property>
+        <property name="fechaarqueo" type="date">
+            <column name="FECHAARQUEO" length="10" />
+        </property>
+        <set name="TCajaDetalles" table="t_caja_detalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCAJA" />
+            </key>
+            <one-to-many class="SIGEV.BE.TCajaDetalle" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,104 @@
+
+<html>
+
+<head>
+<title>Imprimir s�lo parte de la pantalla</title>
+<!--
+This file retrieved from the JS-Examples archives
+http://www.js-examples.com
+100s of free ready to use scripts, tutorials, forums.
+Author: JS-Examples - http://www.js-examples.com/ 
+-->
+<style>
+    #tabbla{
+        background-color: #0000FF;
+    }
+</style>
+</head>
+<body>
+
+<p align="center"><b>Imprimir s�lo parte de la pantalla</b></p>
+
+<script type="text/javascript">
+var _h1 = "<html><head>";
+var _h2 = "</head>";
+var _b1 = "<body>";
+var _b2 = "</body></html>";
+var _part1 = "Esta es la parte 1 de esta <big>p�gina</big><BR>xxx";
+var _part2 = "Esta es la segunda parte de esta <small>p�gina</small><BR>xxx";
+document.write(_part1);
+document.write("<BR>");
+document.write("<BR>");
+document.write(_part2);
+document.write("<BR>");
+document.write("<a href='javascript:printIt(1)'>Imprimir parte 1</a>");
+document.write("<BR>");
+document.write("<BR>");
+document.write("<BR>");
+document.write("<a href='javascript:printIt(2)'>Imprimir parte 2</a>");
+var win=null;
+var p = document.getElementById("imprimir");
+document.write(p.toString());
+function printIt(_i) {
+  win = window.open();
+  self.focus();
+  win.document.open();
+  win.document.write(_h1+_h2+_b1+eval("_part" + _i)+_b2);
+
+  win.document.close();
+  win.print();
+  win.close();
+}
+function imprime() {
+  win = window.open();
+  self.focus();
+  win.document.open();
+  win.document.write(_h1+_h2+_b1+eval("p")+_b2);
+  win.document.close();
+  win.print();
+  win.close();
+}
+
+</script>
+<script type="text/javascript">
+function imprSelec(muestra)
+{
+var ficha=document.getElementById(muestra);
+var ventimp=window.open(' ','popimpr');
+ventimp.document.write(ficha.innerHTML);
+ventimp.document.close();
+ventimp.print();
+ventimp.close();
+}
+</script>
+
+<div id="muestra">hola a todos�
+    <table id="tabbla" width="200" border="1">
+  <tr>
+    <td>como </td>
+    <td>imprimir</td>
+  </tr>
+  <tr>
+    <td>tabla</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</div>
+<a href="javascript:imprSelec('muestra')">Imprimir Tabla</a>
+<div id="imprimir">
+<table width="200" border="1">
+  <tr>
+    <td>hola</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</div>
+<a href='javascript:imprime()'>para imprimir un div</a>
+</body>
+
+
+</html>

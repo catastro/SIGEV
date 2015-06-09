@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TPago" table="t_pago" catalog="calipsodb" optimistic-lock="version">
+        <id name="idpago" type="int">
+            <column name="IDPAGO" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="TPersonal" class="SIGEV.BE.TPersonal" fetch="select">
+            <column name="IDPERSONAL" />
+        </many-to-one>
+        <property name="fechainicio" type="date">
+            <column name="FECHAINICIO" length="10" />
+        </property>
+        <property name="fechafin" type="date">
+            <column name="FECHAFIN" length="10" />
+        </property>
+        <property name="monto" type="java.lang.Double">
+            <column name="MONTO" precision="22" scale="0" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <property name="minutostardanza" type="java.lang.Integer">
+            <column name="MINUTOSTARDANZA" />
+        </property>
+        <property name="horasextra" type="java.lang.Integer">
+            <column name="HORASEXTRA" />
+        </property>
+        <property name="aumento" type="java.lang.Double">
+            <column name="AUMENTO" precision="22" scale="0" />
+        </property>
+        <property name="descuento" type="java.lang.Double">
+            <column name="DESCUENTO" precision="22" scale="0" />
+        </property>
+        <property name="montototal" type="java.lang.Double">
+            <column name="MONTOTOTAL" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

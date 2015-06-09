@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 06:26:52 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="SIGEV.BE.TUsuario" table="t_usuario" catalog="calipsodb" optimistic-lock="version">
+        <id name="idusuario" type="int">
+            <column name="IDUSUARIO" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="TPersona" class="SIGEV.BE.TPersona" fetch="select">
+            <column name="IDPERSONA" />
+        </many-to-one>
+        <many-to-one name="TRol" class="SIGEV.BE.TRol" fetch="select">
+            <column name="IDROL" />
+        </many-to-one>
+        <property name="nombreusuario" type="string">
+            <column name="NOMBREUSUARIO" length="40" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="40" />
+        </property>
+        <property name="ipacceso" type="string">
+            <column name="IPACCESO" length="40" />
+        </property>
+        <property name="idusuariocreac" type="java.lang.Integer">
+            <column name="IDUSUARIOCREAC" />
+        </property>
+        <property name="idusuariomodif" type="java.lang.Integer">
+            <column name="IDUSUARIOMODIF" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="100" />
+        </property>
+        <property name="fechacreac" type="date">
+            <column name="FECHACREAC" length="10" />
+        </property>
+        <property name="fechamodif" type="date">
+            <column name="FECHAMODIF" length="10" />
+        </property>
+        <set name="TRazonSocials" table="t_razon_social" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDUSUARIO" />
+            </key>
+            <one-to-many class="SIGEV.BE.TRazonSocial" />
+        </set>
+        <set name="TCajas" table="t_caja" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDUSUARIO" />
+            </key>
+            <one-to-many class="SIGEV.BE.TCaja" />
+        </set>
+    </class>
+</hibernate-mapping>
